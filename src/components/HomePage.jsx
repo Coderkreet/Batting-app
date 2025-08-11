@@ -9,6 +9,8 @@ import React from 'react';
     import 'swiper/css/pagination';
 
     import './homePage.css';
+    import img1 from '../assets/HeroSection/img1.png'
+    import img2 from '../assets/HeroSection/img2.avif'
 
     // import required modules
     import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
@@ -89,28 +91,30 @@ const topMatches = [
         <>
           {/* Hero Banners */}
           <div className="grid lg:grid-cols-2 gap-6 mb-8">
-            <div className="relative bg-gradient-to-r from-red-900 via-red-800 to-purple-900 rounded-2xl overflow-hidden">
+            {/* First Hero Banner with img1 background and reduced height */}
+            <div className="relative rounded-2xl overflow-hidden h-56 md:h-64" style={{ backgroundImage: `url(${img1})`, backgroundSize: 'cover', backgroundPosition: 'center' }}>
               <div className="absolute inset-0 bg-black bg-opacity-30"></div>
-              <div className="relative z-10 p-8 flex items-center">
-                <div className="flex-1">
+              <div className="relative z-10 p-6 md:p-8 flex items-center h-full">
+                <div className="flex-1 flex flex-col justify-center">
                   <h2 className="text-3xl font-bold text-yellow-400 mb-2">Get 500%</h2>
                   <h3 className="text-2xl font-bold mb-6">Joining Bonus</h3>
                   <button className="bg-white text-gray-900 px-6 py-3 rounded-lg font-medium hover:bg-gray-100 transition-colors">
                     Deposit Now
                   </button>
                 </div>
-                <div className="flex-1 flex justify-end">
-                  <div className="w-32 h-40 bg-gradient-to-b from-red-600 to-red-800 rounded-lg flex items-center justify-center">
+                {/* <div className="flex-1 flex justify-end items-center">
+                  <div className="w-24 h-32 md:w-32 md:h-40 bg-gradient-to-b from-red-600 to-red-800 rounded-lg flex items-center justify-center">
                     <div className="text-4xl">🎰</div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
 
-            <div className="relative bg-gradient-to-r from-teal-900 via-teal-800 to-green-900 rounded-2xl overflow-hidden">
+            {/* Second Hero Banner remains unchanged, but height matches first */}
+            <div className="relative  rounded-2xl overflow-hidden h-56 md:h-64" style={{ backgroundImage: `url(${img2})`, backgroundSize: 'cover', backgroundPosition: 'center' }} >
               <div className="absolute inset-0 bg-black bg-opacity-20"></div>
-              <div className="relative z-10 p-8 flex items-center">
-                <div className="flex-1">
+              <div className="relative z-10 p-6 md:p-8 flex items-center h-full">
+                <div className="flex-1 flex flex-col justify-center">
                   <h2 className="text-2xl font-bold mb-2">Join Our Affiliate</h2>
                   <h3 className="text-2xl font-bold mb-4">Program</h3>
                   <div className="text-sm mb-6 bg-teal-700 px-3 py-1 rounded-full inline-block">
@@ -120,8 +124,8 @@ const topMatches = [
                     Join Now
                   </button>
                 </div>
-                <div className="flex-1 flex justify-end">
-                  <div className="w-32 h-40 bg-gradient-to-b from-green-600 to-teal-800 rounded-lg flex items-center justify-center">
+                <div className="flex-1 flex justify-end items-center">
+                  <div className="w-24 h-32 md:w-32 md:h-40 bg-gradient-to-b from-green-600 to-teal-800 rounded-lg flex items-center justify-center">
                     <div className="text-4xl">💎</div>
                   </div>
                 </div>

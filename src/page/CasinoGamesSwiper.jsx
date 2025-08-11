@@ -1,553 +1,432 @@
-import React, { useState, useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import React from 'react';
+import { TrendingUp } from 'lucide-react';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import "../components/homePage.css"
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/free-mode';
+import 'swiper/css/pagination';
 
-const CasinoGamesInterface = () => {
+import Rimg1 from '../assets/recomended section/LUCKY 5.jpeg'
+import Rimg2 from '../assets/recomended section/ANDAR BAHAR.png'
+import Rimg3 from '../assets/recomended section/BACCARAT.png'
+import Rimg4 from '../assets/recomended section/MUFLIS TEENPATTI.png'
+import Rimg5 from '../assets/recomended section/BOLLYWOOD CASINO.png'
+import Rimg6 from '../assets/recomended section/DRAGON TIGER.png'
+import Rimg7 from '../assets/recomended section/dRAGON TIGER 2.png'
+import Rimg8 from '../assets/recomended section/INSTANT 2 CARDS TEENPATTI.png'
+import Rimg9 from '../assets/recomended section/LUCKY.png'
+
+// import required modules
+import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+
+const CasinoGamesSwiper = () => {
+  // Recommended Games Data (matching the image)
   const recommendedGames = [
     { 
-      id: 1, 
-      title: 'LUCKY 5', 
-      image: '/api/placeholder/150/200', 
-      brand: '',
-      bgColor: 'from-yellow-500 to-orange-600'
+      name: 'LUCKY 5', 
+      image: Rimg1, 
+      category: 'Slots',
+      isNew: false 
     },
     { 
-      id: 2, 
-      title: 'ANDAR BAHAR', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-purple-600 to-purple-800'
+      name: 'ANDAR BAHAR', 
+      image: Rimg2, 
+      category: 'Card Games',
+      isNew: false 
     },
     { 
-      id: 3, 
-      title: 'BACCARAT', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-blue-500 to-blue-700'
+      name: 'BACCARAT', 
+      image: Rimg3, 
+      category: 'Card Games',
+      isNew: false 
     },
     { 
-      id: 4, 
-      title: 'MUFLIS TEENPATTI', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-red-500 to-red-700'
+      name: 'MUFLIS TEENPATTI', 
+      image: Rimg4, 
+      category: 'Card Games',
+      badge: 'MACES GAMING'
     },
     { 
-      id: 5, 
-      title: 'BOLLYWOOD CASINO', 
-      image: '/api/placeholder/150/200', 
-      brand: '',
-      bgColor: 'from-blue-600 to-blue-800'
+      name: 'BOLLYWOOD CASINO', 
+      image: Rimg5, 
+      category: 'Themed Games',
+      isNew: false 
     },
     { 
-      id: 6, 
-      title: 'DRAGON TIGER', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-red-500 to-pink-600'
+      name: 'DRAGON TIGER', 
+      image: Rimg6, 
+      category: 'Card Games',
+      badge: 'MACES GAMING'
     },
     { 
-      id: 7, 
-      title: 'DRAGON TIGER 2', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-green-500 to-emerald-600'
+      name: 'DRAGON TIGER 2', 
+      image: Rimg7, 
+      category: 'Card Games',
+      badge: 'MACES GAMING'
     },
     { 
-      id: 8, 
-      title: 'INSTANT 2 CARDS TEENPATTI', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-purple-600 to-indigo-700'
+      name: 'INSTANT 2 CARDS TEENPATTI', 
+      image: Rimg8, 
+      category: 'Card Games',
+      badge: 'MACES GAMING'
     },
     { 
-      id: 9, 
-      title: 'LUCK', 
-      image: '/api/placeholder/150/200', 
-      brand: 'MACH8 GAMING',
-      bgColor: 'from-indigo-500 to-purple-700'
-    },
+      name: 'LUCKY', 
+      image:Rimg9 , 
+      category: 'Slots',
+      isNew: false 
+    }
   ];
 
+    // Casino Lobby Games Data
+    const casinoLobbyGames = [
+      { name: 'Lobby 1', image: Rimg1, badge: 'LOBBY', isLive: false },
+      { name: 'Lobby 2', image: Rimg2, badge: 'LOBBY', isLive: false },
+      { name: 'Lobby 3', image: Rimg3, badge: 'LOBBY', isLive: false },
+      { name: 'Lobby 4', image: Rimg4, badge: 'LOBBY', isLive: false },
+      { name: 'Lobby 5', image: Rimg5, badge: 'LOBBY', isLive: false },
+      { name: 'Lobby 6', image: Rimg6, badge: 'LOBBY', isLive: false },
+    ];
+
+    // Slots Games Data
+    const slotsGames = [
+      { name: 'Mega Slots', image: Rimg1, category: 'Slots', isNew: true },
+      { name: 'Fruit Spin', image: Rimg1, category: 'Slots', isNew: false },
+      { name: 'Starburst', image: Rimg1, category: 'Slots', isNew: false },
+      { name: 'Book of Gold', image: Rimg1, category: 'Slots', isNew: false },
+      { name: 'Lucky 7', image: Rimg1, category: 'Slots', isNew: true },
+      { name: 'Wild Joker', image: Rimg1, category: 'Slots', isNew: false },
+    ]
+  // Live Casino Games Data
   const liveCasinoGames = [
     { 
-      id: 1, 
-      title: 'AUTO-ROULETTE', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-red-800 to-red-900'
+      name: 'AUTO-ROULETTE', 
+      image: Rimg1, 
+      isLive: true 
     },
     { 
-      id: 2, 
-      title: 'CRAZY TIME', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-green-600 to-green-800'
+      name: 'CRAZY TIME', 
+      image: Rimg2, 
+      isLive: true 
     },
     { 
-      id: 3, 
-      title: 'DRAGON TIGER', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-orange-500 to-red-600'
+      name: 'DRAGON TIGER', 
+      image: Rimg3, 
+      isLive: true 
     },
     { 
-      id: 4, 
-      title: 'LIGHTNING DICE', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-blue-500 to-blue-700'
+      name: 'LIGHTNING DICE', 
+      image: Rimg4, 
+      isLive: true 
     },
     { 
-      id: 5, 
-      title: 'LIGHTNING ROULETTE', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-teal-500 to-cyan-600'
+      name: 'LIGHTNING ROULETTE', 
+      image: Rimg5, 
+      isLive: true 
     },
     { 
-      id: 6, 
-      title: 'RED DOOR ROULETTE', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-red-600 to-red-800'
+      name: 'RED DOOR ROULETTE', 
+      image: Rimg6, 
+      isLive: true 
     },
     { 
-      id: 7, 
-      title: 'SPEED BACCARAT A', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-yellow-600 to-orange-700'
+      name: 'SPEED BACCARAT A', 
+      image: Rimg1, 
+      isLive: true 
     },
     { 
-      id: 8, 
-      title: 'SUPER SIC BO', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-purple-600 to-purple-800'
+      name: 'SUPER SIC BO', 
+      image: Rimg2, 
+      isLive: true 
     },
     { 
-      id: 9, 
-      title: 'LIGHTNING', 
-      image: '/api/placeholder/150/200', 
-      brand: 'EVOLUTION',
-      bgColor: 'from-blue-400 to-blue-600'
-    },
+      name: 'LIGHTNING', 
+      image: Rimg3, 
+      isLive: true 
+    }
+  ];
+
+  // Your existing games data
+  const games = [
+    { name: 'Fortune Wheel', color: 'from-purple-600 to-blue-600' },
+    { name: 'Twist X', color: 'from-blue-600 to-purple-600' },
+    { name: 'Lucky 5', color: 'from-yellow-500 to-orange-500' },
+    { name: 'Rock Paper Scissors', color: 'from-gray-600 to-gray-800' },
+    { name: 'Limbo', color: 'from-orange-500 to-red-500' },
+    { name: 'Plinko', color: 'from-green-500 to-green-600' },
+    { name: 'Crash', color: 'from-purple-500 to-pink-500' }
+  ];
+
+  // Your existing topMatches data
+  const topMatches = [
+    {
+      teams: [
+        { label: 'MO', color: 'bg-blue-500' },
+        { label: 'BM', color: 'bg-blue-600' },
+        { label: 'F', color: 'bg-blue-700' }
+      ],
+      live: true,
+      sport: 'FOOTBALL',
+      event: 'English Community Shield',
+      match: 'Crystal Palace V Liverpool',
+      time: 'Today 07:30 PM',
+      odds: ['5.90', '6.40', '4.70', '1.62', '1.63']
+    }
+    // ... rest of your topMatches data
   ];
 
   return (
-    <div className="bg-slate-900 min-h-screen">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
-        <GameSection 
-          title="Recommended Games" 
-          games={recommendedGames} 
-        />
-        
-        <GameSection 
-          title="Live Casino Games" 
-          games={liveCasinoGames} 
-        />
-      </div>
-    </div>
-  );
-};
-
-const GameSection = ({ title, games }) => {
-  const [currentPage, setCurrentPage] = useState(0);
-  const [isMobile, setIsMobile] = useState(false);
-  const [isTouch, setIsTouch] = useState(false);
-  const containerRef = useRef(null);
-  const scrollContainerRef = useRef(null);
-  const [cardsPerRow, setCardsPerRow] = useState(9);
-  
-  // Touch/Swipe state
-  const [touchStart, setTouchStart] = useState(null);
-  const [touchEnd, setTouchEnd] = useState(null);
-  const [isDragging, setIsDragging] = useState(false);
-
-  // Enhanced responsive cards per row
-  useEffect(() => {
-    const handleResize = () => {
-      const width = window.innerWidth;
-      const mobile = width < 768;
-      const touch = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-      
-      setIsMobile(mobile);
-      setIsTouch(touch);
-      
-      if (width < 360) {
-        setCardsPerRow(2);
-      } else if (width < 480) {
-        setCardsPerRow(2);
-      } else if (width < 640) {
-        setCardsPerRow(3);
-      } else if (width < 768) {
-        setCardsPerRow(4);
-      } else if (width < 1024) {
-        setCardsPerRow(5);
-      } else if (width < 1280) {
-        setCardsPerRow(7);
-      } else {
-        setCardsPerRow(9);
-      }
-    };
-
-    handleResize();
-    window.addEventListener('resize', handleResize);
-    return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const totalPages = Math.ceil(games.length / cardsPerRow);
-  const currentGames = games.slice(
-    currentPage * cardsPerRow,
-    (currentPage + 1) * cardsPerRow
-  );
-
-  const nextPage = () => {
-    if (currentPage < totalPages - 1) {
-      setCurrentPage(currentPage + 1);
-    } else if (isMobile || isTouch) {
-      // Loop back to first page on mobile/touch devices
-      setCurrentPage(0);
-    }
-  };
-
-  const prevPage = () => {
-    if (currentPage > 0) {
-      setCurrentPage(currentPage - 1);
-    } else if (isMobile || isTouch) {
-      // Loop to last page on mobile/touch devices
-      setCurrentPage(totalPages - 1);
-    }
-  };
-
-  // Touch handlers
-  const handleTouchStart = (e) => {
-    setTouchEnd(null);
-    setTouchStart(e.targetTouches[0].clientX);
-    setIsDragging(false);
-  };
-
-  const handleTouchMove = (e) => {
-    if (!touchStart) return;
-    setTouchEnd(e.targetTouches[0].clientX);
-    setIsDragging(true);
-  };
-
-  const handleTouchEnd = () => {
-    if (!touchStart || !touchEnd) return;
-    
-    const distance = touchStart - touchEnd;
-    const isLeftSwipe = distance > 50;
-    const isRightSwipe = distance < -50;
-
-    if (isLeftSwipe && currentPage < totalPages - 1) {
-      nextPage();
-    } else if (isLeftSwipe && currentPage === totalPages - 1) {
-      setCurrentPage(0); // Loop to first
-    } else if (isRightSwipe && currentPage > 0) {
-      prevPage();
-    } else if (isRightSwipe && currentPage === 0) {
-      setCurrentPage(totalPages - 1); // Loop to last
-    }
-
-    setIsDragging(false);
-    setTouchStart(null);
-    setTouchEnd(null);
-  };
-
-  // Mouse drag handlers for desktop
-  const handleMouseDown = (e) => {
-    if (isMobile) return;
-    setTouchStart(e.clientX);
-    setTouchEnd(null);
-    setIsDragging(false);
-  };
-
-  const handleMouseMove = (e) => {
-    if (!touchStart || isMobile) return;
-    setTouchEnd(e.clientX);
-    setIsDragging(true);
-  };
-
-  const handleMouseUp = () => {
-    if (isMobile) return;
-    handleTouchEnd();
-  };
-
-  // Prevent click events when dragging
-  const handleCardClick = (e) => {
-    if (isDragging) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-  };
-
-  // GSAP Animation for page transitions
-  useEffect(() => {
-    if (containerRef.current) {
-      gsap.fromTo(
-        containerRef.current.children,
-        { opacity: 0, y: 20, scale: 0.9 },
-        { 
-          opacity: 1, 
-          y: 0, 
-          scale: 1,
-          duration: 0.6,
-          stagger: 0.05,
-          ease: "power2.out"
-        }
-      );
-    }
-  }, [currentPage]);
-
-  return (
-    <div className="py-4 sm:py-8">
-      {/* Section Header */}
-      <div className={`flex items-center justify-between mb-4 sm:mb-8 ${isMobile ? 'px-1' : ''}`}>
-        <div className="flex items-center flex-1 min-w-0">
-          <h2 className="text-white text-lg sm:text-xl lg:text-2xl font-bold truncate">
-            {title}
-          </h2>
-          <div className="ml-2 sm:ml-4 h-0.5 bg-gradient-to-r from-cyan-400 to-transparent flex-1 max-w-32"></div>
-        </div>
-
-        {/* Navigation Arrows */}
-        {totalPages > 1 && (
-          <div className="flex space-x-1 sm:space-x-2 ml-2">
-            <button
-              onClick={prevPage}
-              className="p-1.5 sm:p-2 rounded-full transition-all duration-300 bg-gray-700 hover:bg-gray-600 text-white hover:scale-110"
-            >
-              <ChevronLeftIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-            
-            <button
-              onClick={nextPage}
-              className="p-1.5 sm:p-2 rounded-full transition-all duration-300 bg-gray-700 hover:bg-gray-600 text-white hover:scale-110"
-            >
-              <ChevronRightIcon className="w-4 h-4 sm:w-5 sm:h-5" />
-            </button>
-          </div>
-        )}
+    <>
+      {/* Your existing Hero Banners code */}
+      <div className="grid lg:grid-cols-2 gap-6 mb-8">
+        {/* ... existing hero banners ... */}
       </div>
 
-      {/* Swipeable Container */}
-      <div 
-        ref={scrollContainerRef}
-        className="relative overflow-hidden"
-        onTouchStart={handleTouchStart}
-        onTouchMove={handleTouchMove}
-        onTouchEnd={handleTouchEnd}
-        onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
-        onMouseUp={handleMouseUp}
-        onMouseLeave={handleMouseUp}
-        style={{ 
-          cursor: isDragging ? 'grabbing' : 'grab',
-          touchAction: 'pan-y pinch-zoom',
-          userSelect: 'none'
-        }}
-      >
-        {/* Swipe Indicator */}
-        {(isMobile || isTouch) && (
-          <div className="absolute top-2 left-1/2 transform -translate-x-1/2 z-10">
-            <div className="bg-white/10 backdrop-blur-sm rounded-full px-3 py-1 flex items-center space-x-2">
-              <div className="flex space-x-1">
-                <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-                <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-                <div className="w-1 h-1 bg-white/60 rounded-full"></div>
-              </div>
-              <span className="text-white/60 text-xs">Swipe</span>
-            </div>
-          </div>
-        )}
-
-        {/* Games Grid */}
-        <div 
-          ref={containerRef}
-          className={`grid ${
-            isMobile 
-              ? 'gap-2 grid-cols-2 sm:grid-cols-3' 
-              : 'gap-3 sm:gap-4'
-          }`}
-          style={!isMobile ? {
-            gridTemplateColumns: `repeat(${Math.min(cardsPerRow, currentGames.length)}, 1fr)`
-          } : {}}
-          onClick={handleCardClick}
-        >
-          {currentGames.map((game, index) => (
-            <GameCard 
-              key={`${game.id}-${currentPage}`}
-              game={game} 
-              index={index}
-              isMobile={isMobile}
-              isDragging={isDragging}
-            />
-          ))}
-        </div>
+      {/* Your existing Sports Section */}
+      <div className="mb-8">
+        {/* ... existing sports section ... */}
       </div>
 
-      {/* Page Indicators */}
-      {totalPages > 1 && (
-        <div className="flex justify-center mt-4 sm:mt-8 space-x-1.5 sm:space-x-2">
-          {Array.from({ length: totalPages }).map((_, index) => (
-            <button
-              key={index}
-              onClick={() => setCurrentPage(index)}
-              className={`w-2 h-2 sm:w-3 sm:h-3 rounded-full transition-all duration-300 ${
-                currentPage === index 
-                  ? 'bg-cyan-400 scale-125' 
-                  : 'bg-gray-600 hover:bg-gray-500'
-              }`}
-            />
-          ))}
-        </div>
-      )}
+      {/* Your existing Top Matches */}
+      <div className="mb-8">
+        {/* ... existing top matches section ... */}
+      </div>
 
-      {/* Touch Instructions for first time users */}
-      {(isMobile || isTouch) && currentPage === 0 && (
-        <div className="text-center mt-4">
-          <p className="text-white/60 text-xs">
-            👆 Swipe left or right to browse games
-          </p>
-        </div>
-      )}
-    </div>
-  );
-};
-
-const GameCard = ({ game, index, isMobile, isDragging }) => {
-  const cardRef = useRef(null);
-  const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (cardRef.current) {
-      gsap.set(cardRef.current, { opacity: 0, y: 30, scale: 0.8 });
-    }
-  }, []);
-
-  const handleMouseEnter = () => {
-    if (isMobile || isDragging) return;
-    setIsHovered(true);
-    if (cardRef.current) {
-      gsap.to(cardRef.current, {
-        scale: 1.05,
-        y: -5,
-        boxShadow: "0 15px 30px rgba(0,0,0,0.4)",
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    }
-  };
-
-  const handleMouseLeave = () => {
-    if (isMobile || isDragging) return;
-    setIsHovered(false);
-    if (cardRef.current) {
-      gsap.to(cardRef.current, {
-        scale: 1,
-        y: 0,
-        boxShadow: "0 8px 16px rgba(0,0,0,0.2)",
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    }
-  };
-
-  const handleCardClick = (e) => {
-    if (isDragging) {
-      e.preventDefault();
-      e.stopPropagation();
-      return;
-    }
-    // Handle game selection here
-    console.log('Game selected:', game.title);
-  };
-
-  return (
-    <div 
-      ref={cardRef}
-      className={`relative group cursor-pointer ${
-        isMobile ? 'aspect-[4/5]' : 'aspect-[3/4]'
-      } ${isDragging ? 'pointer-events-none' : ''}`}
-      onMouseEnter={handleMouseEnter}
-      onMouseLeave={handleMouseLeave}
-      onClick={handleCardClick}
-    >
-      <div className={`w-full h-full bg-gradient-to-br ${game.bgColor} rounded-lg overflow-hidden shadow-lg transition-transform duration-200`}>
-        {/* Background Image */}
-        <div className="absolute inset-0">
-          <img
-            src={game.image}
-            alt={game.title}
-            className="w-full h-full object-cover opacity-20"
-            draggable="false"
-          />
-        </div>
-
-        {/* Character/Model Image Placeholder */}
-        <div className={`absolute top-2 sm:top-4 left-1/2 transform -translate-x-1/2 ${
-          isMobile ? 'w-12 h-16' : 'w-16 h-20'
-        } bg-white/10 rounded-lg backdrop-blur-sm flex items-center justify-center`}>
-          <div className="text-white/60 text-xs">CHAR</div>
-        </div>
-
-        {/* Brand Badge */}
-        {game.brand && (
-          <div className="absolute top-1 sm:top-2 left-1 sm:left-2">
-            <span className={`bg-black/60 text-white px-1.5 sm:px-2 py-0.5 sm:py-1 rounded backdrop-blur-sm ${
-              isMobile ? 'text-xs' : 'text-xs'
-            }`}>
-              {isMobile ? game.brand.split(' ')[0] : game.brand}
-            </span>
-          </div>
-        )}
-
-        {/* Game Title */}
-        <div className="absolute bottom-0 left-0 right-0 p-2 sm:p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
-          <h3 className={`text-white font-bold text-center leading-tight uppercase ${
-            isMobile ? 'text-xs' : 'text-sm'
-          }`}>
-            {isMobile && game.title.length > 12 
-              ? game.title.substring(0, 12) + '...' 
-              : game.title
-            }
-          </h3>
-        </div>
-
-        {/* Hover Play Button - Only on desktop */}
-        {!isMobile && !isDragging && (
-          <div 
-            className={`absolute inset-0 flex items-center justify-center bg-black/50 backdrop-blur-sm transition-all duration-300 ${
-              isHovered ? 'opacity-100' : 'opacity-0'
-            }`}
+      {/* NEW: Recommended Games Section - Matching the Image */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-6 text-white">Recommended Games</h2>
+        <div className="grid">
+          <Swiper
+            slidesPerView={2.5}
+            spaceBetween={15}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            freeMode={true}
+            breakpoints={{
+              640: { slidesPerView: 4, spaceBetween: 15 },
+              1024: { slidesPerView: 6, spaceBetween: 20 },
+              1280: { slidesPerView: 8, spaceBetween: 20 }
+            }}
+            modules={[FreeMode, Autoplay]}
+            className="recommendedGamesSwiper"
           >
-            <div className="bg-white/90 text-gray-800 rounded-full p-3 hover:bg-white transition-colors duration-200 transform hover:scale-110">
-              <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-              </svg>
-            </div>
-          </div>
-        )}
-
-        {/* Mobile Touch Indicator */}
-        {isMobile && (
-          <div className="absolute top-1 right-1">
-            <div className="w-6 h-6 bg-white/10 rounded-full flex items-center justify-center backdrop-blur-sm">
-              <svg className="w-3 h-3 text-white/60" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-              </svg>
-            </div>
-          </div>
-        )}
-
-        {/* Decorative corner elements */}
-        <div className="absolute top-0 right-0 w-4 sm:w-8 h-4 sm:h-8 bg-gradient-to-bl from-white/20 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-4 sm:w-8 h-4 sm:h-8 bg-gradient-to-tr from-white/10 to-transparent"></div>
+            {recommendedGames.map((game, index) => (
+              <SwiperSlide key={index} className='mySwiper2'>
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
+                  {/* Game Image */}
+                  <div className="relative h-32 bg-gradient-to-br from-purple-600 to-blue-600 flex items-center justify-center">
+                    <img 
+                      src={game.image} 
+                      alt={game.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    {/* Badge for special games */}
+                    {game.badge && (
+                      <div className="absolute top-2 right-2 bg-black bg-opacity-70 text-white text-xs px-2 py-1 rounded">
+                        {game.badge}
+                      </div>
+                    )}
+                    {/* Live indicator */}
+                    {game.isLive && (
+                      <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full">
+                        LIVE
+                      </div>
+                    )}
+                  </div>
+                  
+                  {/* Game Name */}
+                  <div className="p-3 text-center">
+                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
+                      {game.name}
+                    </h3>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
       </div>
-    </div>
+
+      {/* NEW: Live Casino Games Section - Matching the Image */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-6 text-white">Live Casino Games</h2>
+        <div className="grid">
+          <Swiper
+            slidesPerView={2.5}
+            spaceBetween={15}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            freeMode={true}
+            breakpoints={{
+              640: { slidesPerView: 4, spaceBetween: 15 },
+              1024: { slidesPerView: 6, spaceBetween: 20 },
+              1280: { slidesPerView: 8, spaceBetween: 20 }
+            }}
+            modules={[FreeMode, Autoplay]}
+            className="liveCasinoSwiper"
+          >
+            {liveCasinoGames.map((game, index) => (
+              <SwiperSlide key={index} className='mySwiper2'>
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
+                  {/* Game Image */}
+                  <div className="relative h-32 bg-gradient-to-br from-red-600 to-purple-600 flex items-center justify-center">
+                    <img 
+                      src={game.image} 
+                      alt={game.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    {/* Live indicator - always shown for live games */}
+                    <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                      LIVE
+                    </div>
+                  </div>
+                  
+                  {/* Game Name */}
+                  <div className="p-3 text-center">
+                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
+                      {game.name}
+                    </h3>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+      {/* NEW: Live Casino Games Section - Matching the Image */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-6 text-white">Slots </h2>
+        <div className="grid">
+          <Swiper
+            slidesPerView={2.5}
+            spaceBetween={15}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            freeMode={true}
+            breakpoints={{
+              640: { slidesPerView: 4, spaceBetween: 15 },
+              1024: { slidesPerView: 6, spaceBetween: 20 },
+              1280: { slidesPerView: 8, spaceBetween: 20 }
+            }}
+            modules={[FreeMode, Autoplay]}
+            className="liveCasinoSwiper"
+          >
+            {liveCasinoGames.map((game, index) => (
+              <SwiperSlide key={index} className='mySwiper2'>
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
+                  {/* Game Image */}
+                  <div className="relative h-32 bg-gradient-to-br from-red-600 to-purple-600 flex items-center justify-center">
+                    <img 
+                      src={game.image} 
+                      alt={game.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    {/* Live indicator - always shown for live games */}
+                    <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                      LIVE
+                    </div>
+                  </div>
+                  
+                  {/* Game Name */}
+                  <div className="p-3 text-center">
+                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
+                      {game.name}
+                    </h3>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+      {/* NEW: Live Casino Games Section - Matching the Image */}
+      <div className="mb-8">
+        <h2 className="text-2xl font-bold mb-6 text-white">Casino Lobby
+ </h2>
+        <div className="grid">
+          <Swiper
+            slidesPerView={2.5}
+            spaceBetween={15}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+            loop={true}
+            freeMode={true}
+            breakpoints={{
+              640: { slidesPerView: 4, spaceBetween: 15 },
+              1024: { slidesPerView: 6, spaceBetween: 20 },
+              1280: { slidesPerView: 8, spaceBetween: 20 }
+            }}
+            modules={[FreeMode, Autoplay]}
+            className="liveCasinoSwiper"
+          >
+            {liveCasinoGames.map((game, index) => (
+              <SwiperSlide key={index} className='mySwiper2'>
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
+                  {/* Game Image */}
+                  <div className="relative h-32 bg-gradient-to-br from-red-600 to-purple-600 flex items-center justify-center">
+                    <img 
+                      src={game.image} 
+                      alt={game.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    {/* Live indicator - always shown for live games */}
+                    <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                      LIVE
+                    </div>
+                  </div>
+                  
+                  {/* Game Name */}
+                  <div className="p-3 text-center">
+                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
+                      {game.name}
+                    </h3>
+                  </div>
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+      </div>
+
+     
+    </>
   );
 };
 
-export default CasinoGamesInterface;
+export default CasinoGamesSwiper;

@@ -1,14 +1,21 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 
+import img1 from '../assets/Treanding Sedction/img1.gif'
+import img2 from '../assets/Treanding Sedction/img2.gif'
+import img3 from '../assets/Treanding Sedction/img3.gif'
+import img4 from '../assets/Treanding Sedction/img4.gif'
+import img5 from '../assets/Treanding Sedction/img5.gif'
+import img6 from '../assets/Treanding Sedction/img6.gif'
+
 const TrendingGamesSection = () => {
   const trendingGames = [
     {
       id: 1,
       title: 'AVIATOR',
       subtitle: 'Crash Game',
-      image: '/api/placeholder/300/200',
-      bgColor: 'from-red-600 to-red-800',
+      image: img1,
+      bgColor: 'from-red-600 to-red-800', // Keep for fallback
       icon: '✈️',
       isLarge: true
     },
@@ -16,7 +23,7 @@ const TrendingGamesSection = () => {
       id: 2,
       title: 'LIVE PREDICTION',
       subtitle: 'Market Trading',
-      image: '/api/placeholder/300/200',
+      image: img2, // Using the same GIF for all
       bgColor: 'from-green-600 to-green-800',
       icon: '📈',
       isLarge: true
@@ -25,7 +32,7 @@ const TrendingGamesSection = () => {
       id: 3,
       title: 'LUCKY LACE',
       subtitle: 'Live Casino',
-      image: '/api/placeholder/300/200',
+      image: img3, // Using the same GIF for all
       bgColor: 'from-purple-600 to-purple-800',
       icon: '💎',
       isLarge: true
@@ -34,7 +41,7 @@ const TrendingGamesSection = () => {
       id: 4,
       title: 'COLOR PREDICTION',
       subtitle: 'Color Game',
-      image: '/api/placeholder/150/150',
+      image: img4, // Using the same GIF for all
       bgColor: 'from-blue-600 to-blue-800',
       icon: '🎨',
       isSmall: true
@@ -43,7 +50,7 @@ const TrendingGamesSection = () => {
       id: 5,
       title: 'MARBLE RACE',
       subtitle: 'Racing Game',
-      image: '/api/placeholder/150/150',
+      image: img5, // Using the same GIF for all
       bgColor: 'from-orange-600 to-orange-800',
       icon: '🏁',
       isSmall: true
@@ -52,7 +59,7 @@ const TrendingGamesSection = () => {
       id: 6,
       title: 'MINES',
       subtitle: 'Strategy Game',
-      image: '/api/placeholder/150/150',
+      image: img6, // Using the same GIF for all
       bgColor: 'from-teal-600 to-teal-800',
       icon: '💣',
       isSmall: true
@@ -61,7 +68,7 @@ const TrendingGamesSection = () => {
 
   return (
     <div className="bg-slate-900 py-4 sm:py-8">
-      <div className="max-w-7xl mx-auto px-2 sm:px-4 lg:px-6">
+      <div className="max-w-11/12 mx-auto px-2 sm:px-4 lg:px-6">
         <TrendingHeader />
         <TrendingGrid games={trendingGames} />
       </div>
@@ -198,15 +205,26 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
-      <div className={`w-full h-full bg-gradient-to-br ${game.bgColor} rounded-xl overflow-hidden shadow-lg relative`}>
-        {/* Background Pattern */}
+      <div className="w-full h-full rounded-xl overflow-hidden shadow-lg relative">
+        {/* GIF Background Image with reduced opacity */}
+        <div className="absolute inset-0">
+          <img 
+            src={game.image} 
+            alt={game.title}
+            className="w-full h-full object-cover opacity-30"
+          />
+          {/* Gradient overlay to maintain color theme */}
+          <div className={`absolute inset-0 bg-gradient-to-br opacity-80`}></div>
+        </div>
+
+        {/* Background Pattern - keeping original decorative elements */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-0 right-0 w-32 h-32 bg-white rounded-full transform translate-x-16 -translate-y-16"></div>
           <div className="absolute bottom-0 left-0 w-24 h-24 bg-white rounded-full transform -translate-x-12 translate-y-12"></div>
         </div>
 
         {/* Game Icon */}
-        <div className={`absolute ${isMobile ? 'top-2 right-2' : isSmall ? 'top-3 right-3' : 'top-4 right-4'}`}>
+        <div className={`absolute ${isMobile ? 'top-2 right-2' : isSmall ? 'top-3 right-3' : 'top-4 right-4'} z-10`}>
           <div className={`${isMobile ? 'w-8 h-8 text-lg' : isSmall ? 'w-10 h-10 text-xl' : 'w-12 h-12 text-2xl'} 
             bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center`}>
             <span>{game.icon}</span>
@@ -215,7 +233,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
 
         {/* Special Features Badges */}
         {game.title === 'AVIATOR' && (
-          <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
+          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 z-10">
             <div className="bg-yellow-500 text-black px-2 py-1 rounded-full text-xs font-bold flex items-center space-x-1">
               <span>💰</span>
               <span>MULTIPLIER</span>
@@ -224,7 +242,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         )}
 
         {game.title === 'LIVE PREDICTION' && (
-          <div className="absolute top-2 sm:top-3 left-2 sm:left-3">
+          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 z-10">
             <div className="bg-green-400 text-black px-2 py-1 rounded-full text-xs font-bold animate-pulse">
               <span>🔴 LIVE</span>
             </div>
@@ -232,7 +250,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         )}
 
         {game.title === 'LUCKY LACE' && (
-          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 flex space-x-1">
+          <div className="absolute top-2 sm:top-3 left-2 sm:left-3 flex space-x-1 z-10">
             <div className="w-8 h-8 sm:w-10 sm:h-10 bg-white/20 rounded-lg backdrop-blur-sm flex items-center justify-center">
               <span className="text-xs sm:text-sm">🎯</span>
             </div>
@@ -247,7 +265,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
 
         {/* Character/Model for large cards */}
         {!isSmall && !isMobile && (
-          <div className="absolute bottom-16 right-4 w-20 h-24 lg:w-24 lg:h-28">
+          <div className="absolute bottom-16 right-4 w-20 h-24 lg:w-24 lg:h-28 z-10">
             <div className="w-full h-full bg-white/10 rounded-lg backdrop-blur-sm flex items-center justify-center">
               <span className="text-white/60 text-xs">MODEL</span>
             </div>
@@ -255,7 +273,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         )}
 
         {/* Game Title and Info */}
-        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent">
+        <div className="absolute bottom-0 left-0 right-0 p-3 sm:p-4 bg-gradient-to-t from-black/80 via-black/40 to-transparent z-10">
           <div className="flex items-center justify-between">
             <div className="flex-1 min-w-0">
               <h3 className={`text-white font-bold uppercase leading-tight ${
@@ -306,7 +324,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
 
         {/* Hover Overlay */}
         {!isMobile && isHovered && (
-          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/30 backdrop-blur-sm flex items-center justify-center z-20">
             <div className="bg-white/10 border border-white/30 rounded-lg px-4 py-2 backdrop-blur-sm">
               <span className="text-white font-medium">Play Now</span>
             </div>
@@ -315,7 +333,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
 
         {/* Mobile Touch Indicator */}
         {isMobile && (
-          <div className="absolute top-2 right-2">
+          <div className="absolute top-2 right-2 z-10">
             <div className="w-6 h-6 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
               <svg className="w-3 h-3 text-white/80" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
@@ -325,8 +343,8 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         )}
 
         {/* Decorative Elements */}
-        <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-white/10 to-transparent rounded-br-full"></div>
-        <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-white/5 to-transparent rounded-tl-full"></div>
+        <div className="absolute top-0 left-0 w-16 h-16 bg-gradient-to-br from-white/10 to-transparent rounded-br-full z-10"></div>
+        <div className="absolute bottom-0 right-0 w-12 h-12 bg-gradient-to-tl from-white/5 to-transparent rounded-tl-full z-10"></div>
       </div>
     </div>
   );
