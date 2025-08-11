@@ -1,4 +1,4 @@
-    import React from 'react';
+import React from 'react';
     import { TrendingUp } from 'lucide-react';
     import CasinoGamesSwiper from '../page/CasinoGamesSwiper';
     import { Swiper, SwiperSlide } from 'swiper/react';
@@ -21,8 +21,69 @@
         { name: 'Rock Paper Scissors', color: 'from-gray-600 to-gray-800' },
         { name: 'Limbo', color: 'from-orange-500 to-red-500' },
         { name: 'Plinko', color: 'from-green-500 to-green-600' },
+        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
+        { name: 'Plinko', color: 'from-green-500 to-green-600' },
+        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
+        { name: 'Plinko', color: 'from-green-500 to-green-600' },
+        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
+        { name: 'Plinko', color: 'from-green-500 to-green-600' },
+        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
+        { name: 'Plinko', color: 'from-green-500 to-green-600' },
         { name: 'Crash', color: 'from-purple-500 to-pink-500' }
       ];
+
+      // Top Matches Data
+const topMatches = [
+  {
+    teams: [
+      { label: 'MO', color: 'bg-blue-500' },
+      { label: 'BM', color: 'bg-blue-600' },
+      { label: 'F', color: 'bg-blue-700' }
+    ],
+    live: true,
+    sport: 'FOOTBALL',
+    event: 'English Community Shield',
+    match: 'Crystal Palace V Liverpool',
+    time: 'Today 07:30 PM',
+    odds: ['5.90', '6.40', '4.70', '1.62', '1.63']
+  },
+  {
+    teams: [
+      { label: 'P', color: 'bg-purple-500' },
+      { label: 'MO', color: 'bg-blue-600' }
+    ],
+    live: false,
+    sport: 'CRICKET',
+    event: 'The Hundred - Womens',
+    match: 'The Hundred - Womens',
+    time: '06 Aug 05:30 PM',
+    odds: ['', '']
+  },
+  {
+    teams: [
+      { label: 'MO', color: 'bg-blue-500' },
+      { label: 'BM', color: 'bg-blue-600' }
+    ],
+    live: true,
+    sport: 'CRICKET',
+    event: 'International Twenty20 Matches',
+    match: 'Australia V South Africa',
+    time: 'Today 02:45 PM',
+    odds: ['1.36', '1.37']
+  },
+  {
+    teams: [
+      { label: 'MO', color: 'bg-blue-500' },
+      { label: 'BM', color: 'bg-blue-600' }
+    ],
+    live: true,
+    sport: 'CRICKET',
+    event: 'International Twenty20 Matches',
+    match: 'Australia V South Africa',
+    time: 'Today 02:45 PM',
+    odds: ['1.36', '1.37']
+  }
+];
 
       return (
         <>
@@ -106,7 +167,7 @@
         { name: 'More', icon: '➡️', color: 'bg-purple-600' }
       ].map((sport, index) => (
         <SwiperSlide key={index} className='mySwiper2'>
-          <div className={`${sport.color} w-[7rem] rounded-xl p-4 text-center cursor-pointer hover:opacity-80 transition-opacity`}>
+          <div className={`${sport.color} w-[7rem]  rounded-xl p-4 text-center cursor-pointer hover:opacity-80 transition-opacity`}>
             <div className="text-3xl mb-2">{sport.icon}</div>
             <div className="text-xs font-medium">{sport.name}</div>
           </div>
@@ -120,70 +181,53 @@
           {/* Top Matches */}
           <div className="mb-8">
             <h2 className="text-2xl font-bold mb-6 text-cyan-400">Top Matches</h2>
-            <div className="grid lg:grid-cols-3 gap-6">
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs">MO</div>
-                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs">BM</div>
-                    <div className="w-6 h-6 bg-blue-700 rounded-full flex items-center justify-center text-xs">F</div>
+            <div className='grid'>
+            <Swiper
+              slidesPerView={1}
+      spaceBetween={10} // Reduced from 30 to 10 for closer cards
+      autoplay={true} 
+      loop ={true}
+      freeMode={true}
+breakpoints={{
+              640: { slidesPerView: 2, spaceBetween: 20 }, // tablet
+              1024: { slidesPerView: 3.5, spaceBetween: 30 } // large screen
+            }}
+    modules={[FreeMode, Pagination, Autoplay]}
+      className="mySwiper "
+            >
+              {topMatches.map((match, idx) => (
+                <SwiperSlide key={idx} className="mySwiper2">
+                  <div className="bg-gray-800 w-80 rounded-xl p-6 border border-gray-700 h-full">
+                    <div className="flex items-center space-x-3 mb-4">
+                      <div className="flex space-x-1">
+                        {match.teams.map((team, i) => (
+                          <div key={i} className={`w-6 h-6 ${team.color} rounded-full flex items-center justify-center text-xs`}>
+                            {team.label}
+                          </div>
+                        ))}
+                      </div>
+                      {match.live && (
+                        <div className="bg-red-500 px-2 py-1 rounded text-xs">LIVE</div>
+                      )}
+                    </div>
+                    <div className="mb-4">
+                      <div className="text-sm text-gray-400 mb-1">{match.sport}</div>
+                      <div className="text-sm mb-1">{match.event}</div>
+                      <div className="font-medium">{match.match}</div>
+                      <div className="text-xs text-gray-400">{match.time}</div>
+                    </div>
+                    <div className="flex space-x-2">
+                      {match.odds.map((odd, i) => (
+                        <div key={i} className={`px-3 py-2 rounded text-sm ${i % 2 === 0 ? 'bg-pink-500' : 'bg-pink-400'}`}>
+                          {odd}
+                        </div>
+                      ))}
+                    </div>
                   </div>
-                  <div className="bg-red-500 px-2 py-1 rounded text-xs">LIVE</div>
-                </div>
-                <div className="mb-4">
-                  <div className="text-sm text-gray-400 mb-1">FOOTBALL</div>
-                  <div className="text-sm mb-1">English Community Shield</div>
-                  <div className="font-medium">Crystal Palace V Liverpool</div>
-                  <div className="text-xs text-gray-400">Today 07:30 PM</div>
-                </div>
-                <div className="flex space-x-2">
-                  <div className="bg-pink-500 px-3 py-2 rounded text-sm">5.90</div>
-                  <div className="bg-pink-400 px-3 py-2 rounded text-sm">6.40</div>
-                  <div className="bg-pink-500 px-3 py-2 rounded text-sm">4.70</div>
-                  <div className="bg-gray-600 px-3 py-2 rounded text-sm">1.62</div>
-                  <div className="bg-gray-600 px-3 py-2 rounded text-sm">1.63</div>
-                </div>
+                 </SwiperSlide>
+              ))}
+            </Swiper>
               </div>
-
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    <div className="w-6 h-6 bg-purple-500 rounded-full flex items-center justify-center text-xs">P</div>
-                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs">MO</div>
-                  </div>
-                </div>
-                <div className="mb-4">
-                  <div className="text-sm text-gray-400 mb-1">CRICKET</div>
-                  <div className="text-sm mb-1">The Hundred - Womens</div>
-                  <div className="font-medium">The Hundred - Womens</div>
-                  <div className="text-xs text-gray-400">06 Aug 05:30 PM</div>
-                </div>
-                <div className="flex space-x-2">
-                  <div className="bg-pink-500 px-3 py-2 rounded text-sm"></div>
-                  <div className="bg-pink-400 px-3 py-2 rounded text-sm"></div>
-                </div>
-              </div>
-
-              <div className="bg-gray-800 rounded-xl p-6 border border-gray-700">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="flex space-x-1">
-                    <div className="w-6 h-6 bg-blue-500 rounded-full flex items-center justify-center text-xs">MO</div>
-                    <div className="w-6 h-6 bg-blue-600 rounded-full flex items-center justify-center text-xs">BM</div>
-                  </div>
-                  <div className="bg-red-500 px-2 py-1 rounded text-xs">LIVE</div>
-                </div>
-                <div className="mb-4">
-                  <div className="text-sm text-gray-400 mb-1">CRICKET</div>
-                  <div className="text-sm mb-1">International Twenty20 Matches</div>
-                  <div className="font-medium">Australia V South Africa</div>
-                  <div className="text-xs text-gray-400">Today 02:45 PM</div>
-                </div>
-                <div className="flex space-x-2">
-                  <div className="bg-pink-500 px-3 py-2 rounded text-sm">1.36</div>
-                  <div className="bg-pink-400 px-3 py-2 rounded text-sm">1.37</div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* New Launch Games */}
@@ -195,15 +239,32 @@
                 <button className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600">›</button>
               </div>
             </div>
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
+                 <div className='grid'>
+            <Swiper
+              slidesPerView={3.5}
+      spaceBetween={0} // Reduced from 30 to 10 for closer cards
+      autoplay={true} 
+      loop ={true}
+      freeMode={true}
+       breakpoints={{
+              640: { slidesPerView: 5, spaceBetween: 20 }, // tablet
+              1024: { slidesPerView: 10, spaceBetween: 30 } // large screen
+            }}
+          
+    modules={[FreeMode, Pagination, Autoplay]}
+      className="mySwiper"
+            >
               {games.map((game, index) => (
-                <div key={index} className={`bg-gradient-to-br ${game.color} rounded-xl p-4 h-32 flex flex-col justify-between cursor-pointer hover:scale-105 transition-transform`}>
+                               <SwiperSlide key={index} className="mySwiper2">
+ <div key={index} className={`bg-gradient-to-br ${game.color} rounded-xl p-4 h-32 flex flex-col justify-between cursor-pointer hover:scale-105 transition-transform`}>
                   <div className="text-white font-bold text-sm">{game.name}</div>
                   <div className="self-end">
                     <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full"></div>
                   </div>
                 </div>
+                </SwiperSlide>
               ))}
+              </Swiper>
             </div>
           </div>
 
