@@ -3,6 +3,33 @@ import React from 'react';
     import CasinoGamesSwiper from '../page/CasinoGamesSwiper';
     import { Swiper, SwiperSlide } from 'swiper/react';
 
+import cricketImg from '../assets/Sports/cricket.1d9c2d59.webp';
+import footballImg from '../assets/Sports/football.2fdc311b.webp';
+import tennisImg from '../assets/Sports/tennis.8553c42e.webp';
+import kabaddiImg from '../assets/Sports/kabaddi.7f9dd034.webp';
+import basketballImg from '../assets/Sports/binary.219a1f7d.webp';
+import baseballImg from '../assets/Sports/baseball.6ab62b36.webp';
+import greyhoundImg from '../assets/Sports/greyhound.33cb9e90.webp';
+import dartsImg from '../assets/Sports/darts.7d14984e.webp';
+import futsalImg from '../assets/Sports/futsal.e1f85b35.webp';
+import horseraceImg from '../assets/Sports/horserace.36554b87.webp';
+import rugbyImg from '../assets/Sports/rugby.cd558bdd.webp';
+import tableTennisImg from '../assets/Sports/table-tennis.1ecd69f4.webp';
+import volleyballImg from '../assets/Sports/volleyball.0ce3df92.webp';
+// Lonch img
+import Cimg1 from '../assets/Lonch/img_1.webp'
+import Cimg2 from '../assets/Lonch/img_2.webp'
+import Cimg3 from '../assets/Lonch/img_3.webp'
+import Cimg4 from '../assets/Lonch/img_4.webp'
+import Cimg5 from '../assets/Lonch/img_5.webp'
+import Cimg6 from '../assets/Lonch/img_6.webp'
+import Cimg7 from '../assets/Lonch/img_7.webp'
+import Cimg8 from '../assets/Lonch/img_8.webp'
+import Cimg9 from '../assets/Lonch/img_9.webp'
+import Cimg10 from '../assets/Lonch/img_10.webp'
+import Cimg11 from '../assets/Lonch/img_11.webp'
+import Cimg12 from '../assets/Lonch/img_12.webp'
+
     // Import Swiper styles
     import 'swiper/css';
     import 'swiper/css/free-mode';
@@ -14,25 +41,10 @@ import React from 'react';
 
     // import required modules
     import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+import Banner from './Banner';
 
     const HomePage = () => {
-      const games = [
-        { name: 'Fortune Wheel', color: 'from-purple-600 to-blue-600' },
-        { name: 'Twist X', color: 'from-blue-600 to-purple-600' },
-        { name: 'Lucky 5', color: 'from-yellow-500 to-orange-500' },
-        { name: 'Rock Paper Scissors', color: 'from-gray-600 to-gray-800' },
-        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
-        { name: 'Plinko', color: 'from-green-500 to-green-600' },
-        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
-        { name: 'Plinko', color: 'from-green-500 to-green-600' },
-        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
-        { name: 'Plinko', color: 'from-green-500 to-green-600' },
-        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
-        { name: 'Plinko', color: 'from-green-500 to-green-600' },
-        { name: 'Limbo', color: 'from-orange-500 to-red-500' },
-        { name: 'Plinko', color: 'from-green-500 to-green-600' },
-        { name: 'Crash', color: 'from-purple-500 to-pink-500' }
-      ];
+    
 
       // Top Matches Data
 const topMatches = [
@@ -220,34 +232,123 @@ const topMatches = [
 ];
 
 
+ const liveCasinoGames3 = [
+    { 
+      name: 'AUTO-ROULETTE', 
+      image: Cimg1, 
+      isLive: true 
+    },
+    { 
+      name: 'CRAZY TIME', 
+      image: Cimg2, 
+      isLive: true 
+    },
+    { 
+      name: 'DRAGON TIGER', 
+      image: Cimg3, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING DICE', 
+      image: Cimg4, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING ROULETTE', 
+      image: Cimg5, 
+      isLive: true 
+    },
+    { 
+      name: 'RED DOOR ROULETTE', 
+      image: Cimg6, 
+      isLive: true 
+    },
+    { 
+      name: 'SPEED BACCARAT A', 
+      image: Cimg7, 
+      isLive: true 
+    },
+    { 
+      name: 'SUPER SIC BO', 
+      image: Cimg8, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Cimg9, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Cimg10, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Cimg11, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Cimg12, 
+      isLive: true 
+    },
+  ];
+
+
+
+
       return (
         <>
           {/* Hero Banners */}
-          <div className="grid lg:grid-cols-2 gap-6 mb-8">
-            <div className="relative rounded-2xl overflow-hidden h-56 md:h-64" style={{  backgroundSize: 'cover', backgroundPosition: 'center' }}>
-              <div className="absolute inset-0 "></div>
-           <img src={img1} alt="" />
-            </div>
+ <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:gap-6 mb-8">
+  {/* First Hero Banner */}
+  <div className="relative rounded-lg sm:rounded-2xl overflow-hidden h-32 sm:h-48 md:h-56 lg:h-64 bg-[#111827]">
+    <img 
+      src={img1} 
+      alt="Hero Banner 1" 
+      className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+    />
+  </div>
 
-            {/* Second Hero Banner remains unchanged, but height matches first */}
-            <div className="relative  rounded-2xl overflow-hidden h-56 md:h-64" style={{  backgroundSize: 'cover', backgroundPosition: 'center' }} >
-              <div className="absolute inset-0 "></div>
-              <img src={img2} alt="" />
-            </div>
-          </div>
+  {/* Second Hero Banner */}
+  <div className="relative rounded-lg sm:rounded-2xl overflow-hidden h-32 sm:h-48 md:h-56 lg:h-64 bg-[#111827]">
+    <img 
+      src={img2} 
+      alt="Hero Banner 2" 
+      className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+    />
+  </div>
+</div>
+
+<Banner/>
+
 
           {/* Sports Section */}
        {/* Sports Section */}
 <div className="mb-8">
-  <h2 className="text-2xl font-bold mb-6 text-cyan-400">Sports</h2>
-  <div className="grid">
-  <Swiper
+   <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+          Sports
+
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>  <div className="grid">
+<Swiper
   slidesPerView={2.5}
   spaceBetween={15}
   autoplay={{
     delay: 3000,
     disableOnInteraction: false,
   }}
+   simulateTouch={true}        // Enables mouse drag (default: true)
+  grabCursor={true}           // Shows grab cursor on hover
+  touchRatio={1}              // Touch sensitivity ratio
+  touchAngle={45}             // Maximum swipe angle
+  allowTouchMove={true}  
   loop={true}
   freeMode={true}
   breakpoints={{
@@ -262,124 +363,106 @@ const topMatches = [
 >
   {[
     { 
-      name: 'CRICKET', 
-      bgImage: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-red-600/80 to-red-800/80'
-    },
-    { 
-      name: 'FOOTBALL', 
-      bgImage: 'https://images.unsplash.com/photo-1431324155629-1a6deb1dec8d?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-blue-600/80 to-blue-800/80'
-    },
-    { 
-      name: 'TENNIS', 
-      bgImage: 'https://images.unsplash.com/photo-1554068865-24cecd4e34b8?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-green-600/80 to-green-800/80'
-    },
-    { 
       name: 'KABADDI', 
-      bgImage: 'https://images.unsplash.com/photo-1594736797933-d0301ba2fe65?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-orange-600/80 to-orange-800/80'
+      icon: kabaddiImg,
+      bgColor: 'from-orange-500 to-orange-700'
     },
     { 
       name: 'BASKETBALL', 
-      bgImage: 'https://images.unsplash.com/photo-1546519638-68e109498ffc?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-amber-600/80 to-orange-800/80'
-    },
-    { 
-      name: 'VOLLEYBALL', 
-      bgImage: 'https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-yellow-600/80 to-yellow-800/80'
-    },
-    { 
-      name: 'HOCKEY', 
-      bgImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-indigo-600/80 to-indigo-800/80'
+      icon: basketballImg,
+      bgColor: 'from-amber-500 to-orange-600'
     },
     { 
       name: 'BASEBALL', 
-      bgImage: 'https://images.unsplash.com/photo-1566577739112-5180d4bf9390?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-gray-600/80 to-gray-800/80'
+      icon: baseballImg,
+      bgColor: 'from-gray-500 to-gray-700'
     },
     { 
-      name: 'BADMINTON', 
-      bgImage: 'https://images.unsplash.com/photo-1626224583764-f87db24ac4ea?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-pink-600/80 to-pink-800/80'
+      name: 'GREYHOUND', 
+      icon: greyhoundImg,
+      bgColor: 'from-amber-600 to-amber-800'
+    },
+    { 
+      name: 'CRICKET', 
+      icon: cricketImg,
+      bgColor: 'from-red-500 to-red-700'
+    },
+    { 
+      name: 'FOOTBALL', 
+      icon: footballImg,
+      bgColor: 'from-blue-500 to-blue-700'
+    },
+    { 
+      name: 'TENNIS', 
+      icon: tennisImg,
+      bgColor: 'from-green-500 to-green-700'
+    },
+    { 
+      name: 'VOLLEYBALL', 
+      icon: volleyballImg,
+      bgColor: 'from-yellow-500 to-yellow-700'
+    },
+    { 
+      name: 'DARTS', 
+      icon: dartsImg,
+      bgColor: 'from-red-600 to-red-800'
+    },
+    { 
+      name: 'FUTSAL', 
+      icon: futsalImg,
+      bgColor: 'from-blue-400 to-blue-600'
+    },
+    { 
+      name: 'HORSERACE', 
+      icon: horseraceImg,
+      bgColor: 'from-gray-800 to-black'
+    },
+    { 
+      name: 'RUGBY', 
+      icon: rugbyImg,
+      bgColor: 'from-indigo-500 to-indigo-700'
     },
     { 
       name: 'TABLE TENNIS', 
-      bgImage: 'https://images.unsplash.com/photo-1609710228159-0fa9bd7c0827?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-cyan-600/80 to-cyan-800/80'
-    },
-    { 
-      name: 'BOXING', 
-      bgImage: 'https://images.unsplash.com/photo-1549719386-74dfcbf7dbed?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-red-700/80 to-red-900/80'
-    },
-    { 
-      name: 'SWIMMING', 
-      bgImage: 'https://images.unsplash.com/photo-1530549387789-4c1017266635?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-blue-500/80 to-blue-700/80'
-    },
-    { 
-      name: 'RACING', 
-      bgImage: 'https://images.unsplash.com/photo-1558618047-3c8c76ca7d13?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-black/80 to-gray-800/80'
-    },
-    { 
-      name: 'MORE', 
-      bgImage: 'https://images.unsplash.com/photo-1461896836934-ffe607ba8211?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-purple-600/80 to-purple-800/80'
+      icon: tableTennisImg,
+      bgColor: 'from-cyan-500 to-cyan-700'
     }
   ].map((sport, index) => (
     <SwiperSlide key={index} className='mySwiper2'>
       <div className="group relative">
         {/* Card Container */}
-        <div className="w-full min-w-[6rem] max-w-[8rem] aspect-[4/5] rounded-2xl overflow-hidden 
+        <div className="w-full min-w-[6rem] max-w-[8rem] aspect-[4/2] rounded-2xl overflow-hidden 
           cursor-pointer transform transition-all duration-300 ease-out
           hover:scale-105 hover:shadow-2xl hover:-translate-y-1
           shadow-lg border border-white/20 relative">
           
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img 
-              src={sport.bgImage} 
-              alt={sport.name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              onError={(e) => {
-                // Fallback gradient if image fails to load
-                e.target.style.display = 'none';
-                // e.target.nextSibling.style.background = `linear-gradient(135deg, ${sport.overlayColor.split(' ')[1]}, ${sport.overlayColor.split(' ')[3]})`;
-              }}
-            />
-            {/* Fallback gradient background */}
-            <div className={`absolute inset-0 `} 
-                 style={{ display: 'none' }}></div>
-          </div>
+          {/* Gradient Background */}
+          <div className={`absolute inset-0 bg-gradient-to-br ${sport.bgColor}`}></div>
           
-          {/* Color Overlay for better text readability */}
-          <div className={`absolute inset-0 bg-gradient-to-br
-            group-hover:opacity-70 transition-opacity duration-300`}></div>
+          {/* Darker overlay for better contrast */}
+          <div className="absolute inset-0 bg-black/30 group-hover:bg-black/20 
+            transition-colors duration-300"></div>
           
           {/* Content Container */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center p-3 sm:p-4 text-center z-10">
+          <div className="absolute inset-0 flex  items-center justify-center p-3 text-center z-10">
+            
+            {/* Sport Icon */}
+            <div className="text-3xl sm:text-4xl mb-2 transform transition-transform duration-300 
+              group-hover:scale-110 drop-shadow-lg">
+                <img src={sport.icon} alt="" />
+              
+            </div>
             
             {/* Sport Name */}
             <div className="text-[0.65rem] sm:text-xs font-bold text-white uppercase tracking-wider 
-              leading-tight drop-shadow-lg text-shadow-lg transform transition-transform duration-300 
-              group-hover:scale-110">
+              leading-tight drop-shadow-lg text-center transform transition-transform duration-300 
+              group-hover:scale-105">
               {sport.name}
-            </div>
-            
-            {/* Subtitle for context */}
-            <div className="text-[0.55rem] text-white/80 mt-1 opacity-0 group-hover:opacity-100 
-              transition-opacity duration-300 uppercase tracking-wide">
-              SPORTS
             </div>
           </div>
           
           {/* Hover Glow Effect */}
-          <div className="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-20 
+          <div className="absolute inset-0 rounded-2xl bg-white opacity-0 group-hover:opacity-10 
             transition-opacity duration-300"></div>
           
           {/* Active Indicator for Popular Sports */}
@@ -389,8 +472,8 @@ const topMatches = [
           )}
           
           {/* Bottom Shine Effect */}
-          <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t 
-            from-white/10 to-transparent opacity-0 group-hover:opacity-100 
+          <div className="absolute bottom-0 left-0 right-0 h-1/4 bg-gradient-to-t 
+            from-white/20 to-transparent opacity-0 group-hover:opacity-100 
             transition-opacity duration-300"></div>
         </div>
         
@@ -403,14 +486,23 @@ const topMatches = [
   ))}
 </Swiper>
 
+
   </div>
 </div>
 
 
           {/* Top Matches */}
           <div className="mb-8">
-            <h2 className="text-2xl font-bold mb-6 text-cyan-400">Top Matches</h2>
-            <div className='grid'>
+   <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+         Top Matches
+
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>            <div className='grid'>
     <Swiper
   slidesPerView={1.1}
   spaceBetween={15}
@@ -583,143 +675,65 @@ const topMatches = [
           {/* New Launch Games */}
           <div className="mb-8">
             <div className="flex items-center justify-between mb-6">
-              <h2 className="text-2xl font-bold text-cyan-400">New Launch</h2>
-              <div className="flex space-x-2">
+   <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+          New Launch
+
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>              <div className="flex space-x-2">
                 <button className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600">‹</button>
                 <button className="w-8 h-8 bg-gray-700 rounded-full flex items-center justify-center hover:bg-gray-600">›</button>
               </div>
             </div>
-                 <div className='grid'>
-         <Swiper
-  slidesPerView={2.5}
-  spaceBetween={15}
-  autoplay={{
-    delay: 3000,
-    disableOnInteraction: false,
-  }}
-  loop={true}
-  freeMode={true}
-  breakpoints={{
-    480: { slidesPerView: 3, spaceBetween: 12 },
-    640: { slidesPerView: 4, spaceBetween: 15 },
-    768: { slidesPerView: 5, spaceBetween: 16 },
-    1024: { slidesPerView: 6, spaceBetween: 18 },
-    1280: { slidesPerView: 8, spaceBetween: 20 }
-  }}
-  modules={[FreeMode, Autoplay]}
-  className="mySwiper"
->
-  {[
-    { 
-      name: 'Fortune Wheel', 
-      bgImage: 'https://images.unsplash.com/photo-1596838132731-3301c3fd4317?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-purple-600/80 to-blue-600/80'
-    },
-    { 
-      name: 'Twist X', 
-      bgImage: 'https://images.unsplash.com/photo-1518611012118-696072aa579a?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-blue-600/80 to-purple-600/80'
-    },
-    { 
-      name: 'Lucky 5', 
-      bgImage: 'https://images.unsplash.com/photo-1541019415-e31e2a4e7e0e?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-yellow-500/80 to-orange-500/80'
-    },
-    { 
-      name: 'Rock Paper Scissors', 
-      bgImage: 'https://images.unsplash.com/photo-1606092195730-5d7b9af1efc5?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-gray-600/80 to-gray-800/80'
-    },
-    { 
-      name: 'Limbo', 
-      bgImage: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-orange-500/80 to-red-500/80'
-    },
-    { 
-      name: 'Plinko', 
-      bgImage: 'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-green-500/80 to-green-600/80'
-    },
-    { 
-      name: 'Crash', 
-      bgImage: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=400&h=300&fit=crop&crop=center',
-      overlayColor: 'from-purple-500/80 to-pink-500/80'
-    }
-  ].map((game, index) => (
-    <SwiperSlide key={index} className="mySwiper2">
-      <div className="group relative">
-        <div className="w-full h-32 rounded-xl overflow-hidden cursor-pointer 
-          transform transition-all duration-300 ease-out hover:scale-105 hover:shadow-xl 
-          shadow-lg border border-white/10 relative">
-          
-          {/* Background Image */}
-          <div className="absolute inset-0">
-            <img 
-              src={game.bgImage} 
-              alt={game.name}
-              className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-              onError={(e) => {
-                // Fallback gradient if image fails to load
-                e.target.style.display = 'none';
-                e.target.nextSibling.style.display = 'block';
-              }}
-            />
-            {/* Fallback gradient background */}
-            <div className={`w-full h-full bg-gradient-to-br ${game.overlayColor.replace('/80', '')}`} 
-                 style={{ display: 'none' }}></div>
-          </div>
-          
-          {/* Color Overlay for better text readability */}
-          <div className={`absolute inset-0 bg-gradient-to-br ${game.overlayColor} 
-            group-hover:opacity-70 transition-opacity duration-300`}></div>
-          
-          {/* Content Container */}
-          <div className="absolute inset-0 p-4 flex flex-col justify-between z-10">
-            
-            {/* Game Name */}
-            <div className="text-white font-bold text-sm drop-shadow-lg transform 
-              transition-transform duration-300 group-hover:scale-105">
-              {game.name}
-            </div>
-            
-            {/* Game Icon/Button */}
-            <div className="self-end flex items-center space-x-2">
-              <div className="w-8 h-8 bg-white bg-opacity-20 rounded-full backdrop-blur-sm 
-                flex items-center justify-center hover:bg-opacity-30 transition-all duration-200
-                group-hover:scale-110">
-                <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clipRule="evenodd" />
-                </svg>
-              </div>
-            </div>
-          </div>
-          
-          {/* Hover Glow Effect */}
-          <div className="absolute inset-0 rounded-xl bg-white opacity-0 group-hover:opacity-20 
-            transition-opacity duration-300"></div>
-          
-          {/* Popular Game Indicator */}
-          {['Fortune Wheel', 'Lucky 5', 'Crash'].includes(game.name) && (
-            <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full 
-              border-2 border-white shadow-lg z-20 animate-pulse"></div>
-          )}
-          
-          {/* Bottom Shine Effect */}
-          <div className="absolute bottom-0 left-0 right-0 h-1/3 bg-gradient-to-t 
-            from-white/10 to-transparent opacity-0 group-hover:opacity-100 
-            transition-opacity duration-300"></div>
-        </div>
-        
-        {/* Bottom Glow Effect */}
-        <div className="absolute -bottom-2 left-1/2 transform -translate-x-1/2 w-8 h-2 
-          bg-white/50 rounded-full blur-md opacity-0 group-hover:opacity-60 
-          transition-opacity duration-300"></div>
-      </div>
-    </SwiperSlide>
-  ))}
-</Swiper>
-
-            </div>
+                 <div className="grid">
+                       <Swiper
+                         slidesPerView={2.5}
+                         spaceBetween={15}
+                         autoplay={{
+                           delay: 4000,
+                           disableOnInteraction: false,
+                         }}
+                          dir="rtl" 
+                         loop={true}
+                         freeMode={true}
+                         breakpoints={{
+                           640: { slidesPerView: 4, spaceBetween: 15 },
+                           1024: { slidesPerView: 6, spaceBetween: 20 },
+                           1280: { slidesPerView: 8, spaceBetween: 20 }
+                         }}
+                         modules={[FreeMode, Autoplay]}
+                         className="liveCasinoSwiper"
+                       >
+                         {liveCasinoGames3.map((game, index) => (
+                           <SwiperSlide key={index} className='mySwiper2'>
+                             <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
+                               {/* Game Image */}
+                               <div className="relative h-32 bg-gradient-to-br from-red-600 to-purple-600 flex items-center justify-center">
+                                 <img 
+                                   src={game.image} 
+                                   alt={game.name}
+                                   className="w-full h-full object-cover"
+                                   onError={(e) => {
+                                     e.target.style.display = 'none';
+                                   }}
+                                 />
+                               
+                               </div>
+                               
+                               {/* Game Name */}
+                               
+                               
+                               {/* Hover Overlay */}
+                               <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
+                             </div>
+                           </SwiperSlide>
+                         ))}
+                       </Swiper>
+                     </div>
           </div>
 
       

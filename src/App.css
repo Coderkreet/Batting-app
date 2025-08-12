@@ -43,3 +43,28 @@ body {
   object-fit: cover;
 }
 
+
+/* For WebKit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px; /* width of the scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #0a0a23; /* scrollbar track background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: #003366; /* dark blue scrollbar thumb */
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #002244; /* even darker blue on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #003366 #0a0a23;
+}
+

@@ -7,6 +7,21 @@ import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
 
+import Simg1 from '../assets/Slotes/img_1.webp'
+import Simg2 from '../assets/Slotes/img_2.webp'
+import Simg3 from '../assets/Slotes/img_3.webp'
+import Simg4 from '../assets/Slotes/img_4.webp'
+import Simg5 from '../assets/Slotes/img_5.webp'
+import Simg6 from '../assets/Slotes/img_6.webp'
+import Simg7 from '../assets/Slotes/img_7.webp'
+import Simg8 from '../assets/Slotes/img_8.webp'
+import Simg9 from '../assets/Slotes/img_9.webp'
+import Simg10 from '../assets/Slotes/img_10.webp'
+import Simg11 from '../assets/Slotes/img_11.webp'
+import Simg12 from '../assets/Slotes/img_12.webp'
+import Simg13 from '../assets/Slotes/img_13.webp'
+import Simg14 from '../assets/Slotes/img_14.webp'
+
 import Rimg1 from '../assets/recomended section/LUCKY 5.jpeg'
 import Rimg2 from '../assets/recomended section/ANDAR BAHAR.png'
 import Rimg3 from '../assets/recomended section/BACCARAT.png'
@@ -16,6 +31,24 @@ import Rimg6 from '../assets/recomended section/DRAGON TIGER.png'
 import Rimg7 from '../assets/recomended section/dRAGON TIGER 2.png'
 import Rimg8 from '../assets/recomended section/INSTANT 2 CARDS TEENPATTI.png'
 import Rimg9 from '../assets/recomended section/LUCKY.png'
+
+import Cimg1 from '../assets/Casino/img1.webp';
+import Cimg2 from '../assets/Casino/img_2.webp';
+import Cimg3 from '../assets/Casino/img_3.webp';
+import Cimg4 from '../assets/Casino/img_4.webp';
+import Cimg5 from '../assets/Casino/img_17.webp';
+import Cimg6 from '../assets/Casino/img_6.webp';
+import Cimg7 from '../assets/Casino/img_7.webp';
+import Cimg8 from '../assets/Casino/img_8.webp';
+import Cimg9 from '../assets/Casino/img_9.webp';
+import Cimg10 from '../assets/Casino/img_10.webp';
+import Cimg11 from '../assets/Casino/img_11.webp';
+import Cimg12 from '../assets/Casino/img_12.webp';
+import Cimg13 from '../assets/Casino/img_13.webp';
+import Cimg14 from '../assets/Casino/img_14.webp';
+import Cimg15 from '../assets/Casino/img_15.webp';
+import Cimg16 from '../assets/Casino/img_16.webp';
+
 
 // import required modules
 import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
@@ -79,26 +112,9 @@ const CasinoGamesSwiper = () => {
     }
   ];
 
-    // Casino Lobby Games Data
-    const casinoLobbyGames = [
-      { name: 'Lobby 1', image: Rimg1, badge: 'LOBBY', isLive: false },
-      { name: 'Lobby 2', image: Rimg2, badge: 'LOBBY', isLive: false },
-      { name: 'Lobby 3', image: Rimg3, badge: 'LOBBY', isLive: false },
-      { name: 'Lobby 4', image: Rimg4, badge: 'LOBBY', isLive: false },
-      { name: 'Lobby 5', image: Rimg5, badge: 'LOBBY', isLive: false },
-      { name: 'Lobby 6', image: Rimg6, badge: 'LOBBY', isLive: false },
-    ];
+ 
 
-    // Slots Games Data
-    const slotsGames = [
-      { name: 'Mega Slots', image: Rimg1, category: 'Slots', isNew: true },
-      { name: 'Fruit Spin', image: Rimg1, category: 'Slots', isNew: false },
-      { name: 'Starburst', image: Rimg1, category: 'Slots', isNew: false },
-      { name: 'Book of Gold', image: Rimg1, category: 'Slots', isNew: false },
-      { name: 'Lucky 7', image: Rimg1, category: 'Slots', isNew: true },
-      { name: 'Wild Joker', image: Rimg1, category: 'Slots', isNew: false },
-    ]
-  // Live Casino Games Data
+
   const liveCasinoGames = [
     { 
       name: 'AUTO-ROULETTE', 
@@ -147,34 +163,155 @@ const CasinoGamesSwiper = () => {
     }
   ];
 
-  // Your existing games data
-  const games = [
-    { name: 'Fortune Wheel', color: 'from-purple-600 to-blue-600' },
-    { name: 'Twist X', color: 'from-blue-600 to-purple-600' },
-    { name: 'Lucky 5', color: 'from-yellow-500 to-orange-500' },
-    { name: 'Rock Paper Scissors', color: 'from-gray-600 to-gray-800' },
-    { name: 'Limbo', color: 'from-orange-500 to-red-500' },
-    { name: 'Plinko', color: 'from-green-500 to-green-600' },
-    { name: 'Crash', color: 'from-purple-500 to-pink-500' }
+ 
+ const liveCasinoGames2 = [
+    { 
+      name: 'AUTO-ROULETTE', 
+      image: Simg1, 
+      isLive: true 
+    },
+    { 
+      name: 'CRAZY TIME', 
+      image: Simg2, 
+      isLive: true 
+    },
+    { 
+      name: 'DRAGON TIGER', 
+      image: Simg3, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING DICE', 
+      image: Simg4, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING ROULETTE', 
+      image: Simg5, 
+      isLive: true 
+    },
+    { 
+      name: 'RED DOOR ROULETTE', 
+      image: Simg6, 
+      isLive: true 
+    },
+    { 
+      name: 'SPEED BACCARAT A', 
+      image: Simg12, 
+      isLive: true 
+    },
+    { 
+      name: 'SUPER SIC BO', 
+      image: Simg8, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Simg9, 
+      isLive: true 
+    }
   ];
 
-  // Your existing topMatches data
-  const topMatches = [
-    {
-      teams: [
-        { label: 'MO', color: 'bg-blue-500' },
-        { label: 'BM', color: 'bg-blue-600' },
-        { label: 'F', color: 'bg-blue-700' }
-      ],
-      live: true,
-      sport: 'FOOTBALL',
-      event: 'English Community Shield',
-      match: 'Crystal Palace V Liverpool',
-      time: 'Today 07:30 PM',
-      odds: ['5.90', '6.40', '4.70', '1.62', '1.63']
+
+ const liveCasinoGames3 = [
+    { 
+      name: 'AUTO-ROULETTE', 
+      image: Cimg1, 
+      isLive: true 
+    },
+    { 
+      name: 'CRAZY TIME', 
+      image: Cimg2, 
+      isLive: true 
+    },
+    { 
+      name: 'DRAGON TIGER', 
+      image: Cimg3, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING DICE', 
+      image: Cimg4, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING ROULETTE', 
+      image: Cimg5, 
+      isLive: true 
+    },
+    { 
+      name: 'RED DOOR ROULETTE', 
+      image: Cimg6, 
+      isLive: true 
+    },
+    { 
+      name: 'SPEED BACCARAT A', 
+      image: Cimg7, 
+      isLive: true 
+    },
+    { 
+      name: 'SUPER SIC BO', 
+      image: Cimg8, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Cimg9, 
+      isLive: true 
     }
-    // ... rest of your topMatches data
   ];
+ const liveCasinoGames4 = [
+    { 
+      name: 'AUTO-ROULETTE', 
+      image: Cimg10, 
+      isLive: true 
+    },
+    { 
+      name: 'CRAZY TIME', 
+      image: Cimg11, 
+      isLive: true 
+    },
+    { 
+      name: 'DRAGON TIGER', 
+      image: Cimg12, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING DICE', 
+      image: Cimg14, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING ROULETTE', 
+      image: Cimg14, 
+      isLive: true 
+    },
+    { 
+      name: 'RED DOOR ROULETTE', 
+      image: Cimg15, 
+      isLive: true 
+    },
+    { 
+      name: 'SPEED BACCARAT A', 
+      image: Cimg15, 
+      isLive: true 
+    },
+    { 
+      name: 'SUPER SIC BO', 
+      image: Cimg2, 
+      isLive: true 
+    },
+    { 
+      name: 'LIGHTNING', 
+      image: Cimg5, 
+      isLive: true 
+    }
+  ];
+
+
+
+
+
 
   return (
     <>
@@ -195,8 +332,16 @@ const CasinoGamesSwiper = () => {
 
       {/* NEW: Recommended Games Section - Matching the Image */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-6 text-white">Recommended Games</h2>
-        <div className="grid">
+   <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+          Recommended Games
+
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>        <div className="grid">
           <Swiper
             slidesPerView={2.5}
             spaceBetween={15}
@@ -242,11 +387,7 @@ const CasinoGamesSwiper = () => {
                   </div>
                   
                   {/* Game Name */}
-                  <div className="p-3 text-center">
-                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
-                      {game.name}
-                    </h3>
-                  </div>
+                  
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
@@ -259,8 +400,16 @@ const CasinoGamesSwiper = () => {
 
       {/* NEW: Live Casino Games Section - Matching the Image */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-6 text-white">Live Casino Games</h2>
-        <div className="grid">
+   <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+         Live Casino Games
+
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>        <div className="grid">
           <Swiper
             slidesPerView={2.5}
             spaceBetween={15}
@@ -299,11 +448,7 @@ const CasinoGamesSwiper = () => {
                   </div>
                   
                   {/* Game Name */}
-                  <div className="p-3 text-center">
-                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
-                      {game.name}
-                    </h3>
-                  </div>
+                  
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
@@ -315,8 +460,15 @@ const CasinoGamesSwiper = () => {
       </div>
       {/* NEW: Live Casino Games Section - Matching the Image */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-6 text-white">Slots </h2>
-        <div className="grid">
+   <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+         Slots Games
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>        <div className="grid">
           <Swiper
             slidesPerView={2.5}
             spaceBetween={15}
@@ -334,7 +486,7 @@ const CasinoGamesSwiper = () => {
             modules={[FreeMode, Autoplay]}
             className="liveCasinoSwiper"
           >
-            {liveCasinoGames.map((game, index) => (
+            {liveCasinoGames2.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
                   {/* Game Image */}
@@ -354,11 +506,7 @@ const CasinoGamesSwiper = () => {
                   </div>
                   
                   {/* Game Name */}
-                  <div className="p-3 text-center">
-                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
-                      {game.name}
-                    </h3>
-                  </div>
+                  
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
@@ -368,10 +516,16 @@ const CasinoGamesSwiper = () => {
           </Swiper>
         </div>
       </div>
-      {/* NEW: Live Casino Games Section - Matching the Image */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold mb-6 text-white">Casino Lobby
- </h2>
+     <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+         Casino Lobby
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
+      </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div>
         <div className="grid">
           <Swiper
             slidesPerView={2.5}
@@ -391,7 +545,7 @@ const CasinoGamesSwiper = () => {
             modules={[FreeMode, Autoplay]}
             className="liveCasinoSwiper"
           >
-            {liveCasinoGames.map((game, index) => (
+            {liveCasinoGames3.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
                   {/* Game Image */}
@@ -411,11 +565,55 @@ const CasinoGamesSwiper = () => {
                   </div>
                   
                   {/* Game Name */}
-                  <div className="p-3 text-center">
-                    <h3 className="text-white font-bold text-sm uppercase tracking-wide">
-                      {game.name}
-                    </h3>
+                  
+                  
+                  {/* Hover Overlay */}
+                  <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
+        </div>
+         <div className="grid mt-4">
+          <Swiper
+            slidesPerView={2.5}
+            spaceBetween={15}
+            autoplay={{
+              delay: 4000,
+              disableOnInteraction: false,
+            }}
+             dir="rtl" 
+            loop={true}
+            freeMode={true}
+            breakpoints={{
+              640: { slidesPerView: 4, spaceBetween: 15 },
+              1024: { slidesPerView: 6, spaceBetween: 20 },
+              1280: { slidesPerView: 8, spaceBetween: 20 }
+            }}
+            modules={[FreeMode, Autoplay]}
+            className="liveCasinoSwiper"
+          >
+            {liveCasinoGames4.map((game, index) => (
+              <SwiperSlide key={index} className='mySwiper2'>
+                <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
+                  {/* Game Image */}
+                  <div className="relative h-32 bg-gradient-to-br from-red-600 to-purple-600 flex items-center justify-center">
+                    <img 
+                      src={game.image} 
+                      alt={game.name}
+                      className="w-full h-full object-cover"
+                      onError={(e) => {
+                        e.target.style.display = 'none';
+                      }}
+                    />
+                    {/* Live indicator - always shown for live games */}
+                    <div className="absolute top-2 left-2 bg-red-500 text-white text-xs px-2 py-1 rounded-full animate-pulse">
+                      LIVE
+                    </div>
                   </div>
+                  
+                  {/* Game Name */}
+                  
                   
                   {/* Hover Overlay */}
                   <div className="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-20 transition-all duration-200"></div>
