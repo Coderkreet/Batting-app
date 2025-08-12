@@ -269,6 +269,7 @@ const CasinoGamesSwiper = () => {
               disableOnInteraction: false,
             }}
             loop={true}
+             dir="rtl" 
             freeMode={true}
             breakpoints={{
               640: { slidesPerView: 4, spaceBetween: 15 },
@@ -379,6 +380,7 @@ const CasinoGamesSwiper = () => {
               delay: 4000,
               disableOnInteraction: false,
             }}
+             dir="rtl" 
             loop={true}
             freeMode={true}
             breakpoints={{
