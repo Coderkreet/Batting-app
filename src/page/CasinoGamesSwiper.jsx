@@ -51,7 +51,7 @@ import Cimg16 from '../assets/Casino/img_16.webp';
 
 
 // import required modules
-import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
+import { Autoplay, FreeMode, Mousewheel, Pagination } from 'swiper/modules';
 
 const CasinoGamesSwiper = () => {
   // Recommended Games Data (matching the image)
@@ -342,23 +342,37 @@ const CasinoGamesSwiper = () => {
       </div>
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
     </div>        <div className="grid">
-          <Swiper
-            slidesPerView={2.5}
-            spaceBetween={15}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            freeMode={true}
-            breakpoints={{
-              640: { slidesPerView: 4, spaceBetween: 15 },
-              1024: { slidesPerView: 6, spaceBetween: 20 },
-              1280: { slidesPerView: 8, spaceBetween: 20 }
-            }}
-            modules={[FreeMode, Autoplay]}
-            className="recommendedGamesSwiper"
-          >
+        <Swiper
+  slidesPerView={2.5}
+  spaceBetween={15}
+  autoplay={{
+    delay: 3000,
+    disableOnInteraction: false,
+  }}
+  loop={true}
+  freeMode={true}
+  // Mouse wheel and trackpad support
+  simulateTouch={true}
+  grabCursor={true}
+  touchRatio={1}
+  touchAngle={45}
+  allowTouchMove={true}
+  mousewheel={{
+    enabled: true,
+    forceToAxis: true,
+    sensitivity: 1,
+    thresholdDelta: 50,
+    releaseOnEdges: true
+  }}
+  breakpoints={{
+    640: { slidesPerView: 4, spaceBetween: 15 },
+    1024: { slidesPerView: 6, spaceBetween: 20 },
+    1280: { slidesPerView: 8, spaceBetween: 20 }
+  }}
+  modules={[FreeMode, Autoplay, Mousewheel]}
+  className="recommendedGamesSwiper"
+>
+
             {recommendedGames.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
@@ -410,24 +424,38 @@ const CasinoGamesSwiper = () => {
       </div>
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
     </div>        <div className="grid">
-          <Swiper
-            slidesPerView={2.5}
-            spaceBetween={15}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-             dir="rtl" 
-            freeMode={true}
-            breakpoints={{
-              640: { slidesPerView: 4, spaceBetween: 15 },
-              1024: { slidesPerView: 6, spaceBetween: 20 },
-              1280: { slidesPerView: 8, spaceBetween: 20 }
-            }}
-            modules={[FreeMode, Autoplay]}
-            className="liveCasinoSwiper"
-          >
+         <Swiper
+  slidesPerView={2.5}
+  spaceBetween={15}
+  autoplay={{
+    delay: 4000,
+    disableOnInteraction: false,
+  }}
+  loop={true}
+  dir="rtl"
+  freeMode={true}
+  // Mouse wheel and trackpad support
+  simulateTouch={true}
+  grabCursor={true}
+  touchRatio={1}
+  touchAngle={45}
+  allowTouchMove={true}
+  mousewheel={{
+    enabled: true,
+    forceToAxis: true,
+    sensitivity: 1,
+    thresholdDelta: 50,
+    releaseOnEdges: true
+  }}
+  breakpoints={{
+    640: { slidesPerView: 4, spaceBetween: 15 },
+    1024: { slidesPerView: 6, spaceBetween: 20 },
+    1280: { slidesPerView: 8, spaceBetween: 20 }
+  }}
+  modules={[FreeMode, Autoplay, Mousewheel]}
+  className="liveCasinoSwiper12"
+>
+
             {liveCasinoGames.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
@@ -469,23 +497,37 @@ const CasinoGamesSwiper = () => {
       </div>
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
     </div>        <div className="grid">
-          <Swiper
-            slidesPerView={2.5}
-            spaceBetween={15}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-            loop={true}
-            freeMode={true}
-            breakpoints={{
-              640: { slidesPerView: 4, spaceBetween: 15 },
-              1024: { slidesPerView: 6, spaceBetween: 20 },
-              1280: { slidesPerView: 8, spaceBetween: 20 }
-            }}
-            modules={[FreeMode, Autoplay]}
-            className="liveCasinoSwiper"
-          >
+        <Swiper
+  slidesPerView={2.5}
+  spaceBetween={15}
+  autoplay={{
+    delay: 4000,
+    disableOnInteraction: false,
+  }}
+  loop={true}
+  freeMode={true}
+  // Mouse wheel and trackpad support
+  simulateTouch={true}
+  grabCursor={true}
+  touchRatio={1}
+  touchAngle={45}
+  allowTouchMove={true}
+  mousewheel={{
+    enabled: true,
+    forceToAxis: true,
+    sensitivity: 1,
+    thresholdDelta: 50,
+    releaseOnEdges: true
+  }}
+  breakpoints={{
+    640: { slidesPerView: 4, spaceBetween: 15 },
+    1024: { slidesPerView: 6, spaceBetween: 20 },
+    1280: { slidesPerView: 8, spaceBetween: 20 }
+  }}
+  modules={[FreeMode, Autoplay, Mousewheel]}
+  className="liveCasinoSwiper"
+>
+
             {liveCasinoGames2.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
@@ -527,24 +569,38 @@ const CasinoGamesSwiper = () => {
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
     </div>
         <div className="grid">
-          <Swiper
-            slidesPerView={2.5}
-            spaceBetween={15}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-             dir="rtl" 
-            loop={true}
-            freeMode={true}
-            breakpoints={{
-              640: { slidesPerView: 4, spaceBetween: 15 },
-              1024: { slidesPerView: 6, spaceBetween: 20 },
-              1280: { slidesPerView: 8, spaceBetween: 20 }
-            }}
-            modules={[FreeMode, Autoplay]}
-            className="liveCasinoSwiper"
-          >
+       <Swiper
+  slidesPerView={2.5}
+  spaceBetween={15}
+  autoplay={{
+    delay: 4000,
+    disableOnInteraction: false,
+  }}
+  dir="rtl"
+  loop={true}
+  freeMode={true}
+  // Mouse wheel and trackpad support
+  simulateTouch={true}
+  grabCursor={true}
+  touchRatio={1}
+  touchAngle={45}
+  allowTouchMove={true}
+  mousewheel={{
+    enabled: true,
+    forceToAxis: true,
+    sensitivity: 1,
+    thresholdDelta: 50,
+    releaseOnEdges: true
+  }}
+  breakpoints={{
+    640: { slidesPerView: 4, spaceBetween: 15 },
+    1024: { slidesPerView: 6, spaceBetween: 20 },
+    1280: { slidesPerView: 8, spaceBetween: 20 }
+  }}
+  modules={[FreeMode, Autoplay, Mousewheel]}
+  className="liveCasinoSwiper"
+>
+
             {liveCasinoGames3.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
@@ -575,24 +631,38 @@ const CasinoGamesSwiper = () => {
           </Swiper>
         </div>
          <div className="grid mt-4">
-          <Swiper
-            slidesPerView={2.5}
-            spaceBetween={15}
-            autoplay={{
-              delay: 4000,
-              disableOnInteraction: false,
-            }}
-             dir="rtl" 
-            loop={true}
-            freeMode={true}
-            breakpoints={{
-              640: { slidesPerView: 4, spaceBetween: 15 },
-              1024: { slidesPerView: 6, spaceBetween: 20 },
-              1280: { slidesPerView: 8, spaceBetween: 20 }
-            }}
-            modules={[FreeMode, Autoplay]}
-            className="liveCasinoSwiper"
-          >
+       <Swiper
+  slidesPerView={2.5}
+  spaceBetween={15}
+  autoplay={{
+    delay: 4000,
+    disableOnInteraction: false,
+  }}
+  dir="rtl"
+  loop={true}
+  freeMode={true}
+  // Mouse wheel and trackpad support
+  simulateTouch={true}
+  grabCursor={true}
+  touchRatio={1}
+  touchAngle={45}
+  allowTouchMove={true}
+  mousewheel={{
+    enabled: true,
+    forceToAxis: true,
+    sensitivity: 1,
+    thresholdDelta: 50,
+    releaseOnEdges: true
+  }}
+  breakpoints={{
+    640: { slidesPerView: 4, spaceBetween: 15 },
+    1024: { slidesPerView: 6, spaceBetween: 20 },
+    1280: { slidesPerView: 8, spaceBetween: 20 }
+  }}
+  modules={[FreeMode, Autoplay, Mousewheel]}
+  className="liveCasinoSwiper"
+>
+
             {liveCasinoGames4.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
                 <div className="relative bg-gray-800 rounded-xl overflow-hidden cursor-pointer hover:scale-105 transition-transform duration-200 group">
