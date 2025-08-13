@@ -23,7 +23,7 @@ const Header = ({setSidebarOpen}) => {
     <>
       <header className="bg-gradient-to-r from-slate-900 via-slate-800 to-slate-900 border-b border-slate-700/50 sticky top-0 z-50 backdrop-blur-sm">
         {/* Main Header */}
-        <div className="flex items-center justify-between px-3 py-2.5">
+        <div className="flex items-center justify-center px-3 py-2.5">
           {/* Left Section - Mobile Menu + Logo */}
           <div className="flex items-center space-x-3">
             <button 
@@ -33,7 +33,7 @@ const Header = ({setSidebarOpen}) => {
               <Menu size={20} />
             </button>
             
-            <div className="flex items-center">
+            <div className="flex md:hidden items-center">
               <img 
                 src={Logo} 
                 width={80} 
@@ -45,7 +45,7 @@ const Header = ({setSidebarOpen}) => {
           </div>
 
           {/* Center Navigation - Desktop Only */}
-          <nav className="hidden lg:flex items-center space-x-1">
+          <nav className="hidden justify-start lg:flex items-center space-x-1">
             <a href="#" className="flex items-center space-x-2 bg-gradient-to-r from-cyan-500 to-blue-600 px-4 py-2 rounded-lg font-medium hover:from-cyan-600 hover:to-blue-700 transition-all text-sm shadow-lg">
               <Home size={16} />
               <span>Home</span>

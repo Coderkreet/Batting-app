@@ -341,7 +341,8 @@ const CasinoGamesSwiper = () => {
         <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
       </div>
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
-    </div>        <div className="grid">
+    </div>     
+       <div className="grid">
       <Swiper
                   slidesPerView={2.5}
                   spaceBetween={15}
@@ -429,9 +430,12 @@ const CasinoGamesSwiper = () => {
                    slidesPerView={2.5}
                    spaceBetween={15}
                    autoplay={{
-                     delay: 3000,
+                     delay: 4000,
                      disableOnInteraction: false,
                    }}
+                     dir="rtl"
+
+                    //  speed={800}  
                    simulateTouch={true}
                    grabCursor={true}
                    touchRatio={1}
@@ -502,7 +506,7 @@ const CasinoGamesSwiper = () => {
             slidesPerView={2.5}
             spaceBetween={15}
             autoplay={{
-              delay: 3000,
+              delay: 2000,
               disableOnInteraction: false,
             }}
             simulateTouch={true}
@@ -632,8 +636,10 @@ const CasinoGamesSwiper = () => {
     <Swiper
             slidesPerView={2.5}
             spaceBetween={15}
+              dir="rtl"
+
             autoplay={{
-              delay: 3000,
+              delay: 2500,
               disableOnInteraction: false,
             }}
             simulateTouch={true}

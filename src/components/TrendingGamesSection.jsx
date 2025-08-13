@@ -78,17 +78,19 @@ const TrendingGamesSection = () => {
 
 const TrendingHeader = () => {
   return (
-    <div className="flex items-center justify-between mb-8">
-      <div className="flex items-center space-x-4">
-        <h2 className="text-white text-3xl font-bold">Trending Games</h2>
-        <div className="px-3 py-1 bg-yellow-400/10 border border-yellow-400/30 rounded-full">
-          <span className="text-yellow-400 text-sm font-medium">🔥 Hot</span>
-        </div>
+    // <div className="flex items-center justify-between mb-8">
+       <div className="flex items-center mb-6 sm:mb-8">
+      <div className="relative">
+        <h2 className="text-white text-xl sm:text-2xl lg:text-3xl font-bold bg-gradient-to-r from-white via-cyan-200 to-white bg-clip-text text-transparent">
+         Trending Games
+
+        </h2>
+        <div className="absolute -bottom-1 left-0 w-full h-0.5 bg-gradient-to-r from-transparent via-cyan-400 to-transparent"></div>
       </div>
-      <button className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors">
-        View All →
-      </button>
-    </div>
+      <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
+    </div> 
+ 
+    // </div>
   );
 };
 

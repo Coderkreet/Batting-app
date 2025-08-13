@@ -1,17 +1,17 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import { X, MessageCircle, ChevronRight, Gift, DollarSign, FileText, Globe, Palette, Shield } from 'lucide-react';
-import Logo from '../assets/Logo/Logo.png'; // Adjust the path as necessary
+import Logo from '../assets/Logo/Logo.png';
+
 const Sidebar = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Mobile Sidebar */}
-      <div className={`fixed lg:hidden  inset-y-0 left-0 z-[1000] w-72 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-slate-700/50 transform transition-all duration-300 ease-in-out shadow-2xl ${
+      <div className={`fixed lg:hidden inset-y-0 left-0 z-[1000] w-72 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-slate-700/50 transform transition-all duration-300 ease-in-out shadow-2xl ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full backdrop-blur-sm">
           <div className="flex items-center justify-between p-6 border-b border-slate-700/50">
             <div className="flex items-center space-x-3">
-            
               <span className="text-xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
                 <img src={Logo} alt="" />
               </span>
@@ -33,9 +33,8 @@ const Sidebar = ({ isOpen, onClose }) => {
           <div className="bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-slate-700/50 h-full flex flex-col shadow-2xl">
             <div className="p-6 border-b border-slate-700/50">
               <div className="flex justify-center items-center space-x-3">
-             
                 <span className="flex justify-center w-auto items-center text-2xl font-bold bg-gradient-to-r from-cyan-400 to-blue-500 bg-clip-text text-transparent">
-                   <img src={Logo} width={150} alt="" />
+                  <img src={Logo} width={150} alt="" />
                 </span>
               </div>
             </div>
@@ -48,6 +47,43 @@ const Sidebar = ({ isOpen, onClose }) => {
 };
 
 const SidebarContent = () => {
+  const scrollContainerRef = useRef(null);
+
+  // Prevent scroll propagation to parent
+  useEffect(() => {
+    const handleWheel = (e) => {
+      const container = scrollContainerRef.current;
+      if (!container) return;
+
+      const { scrollTop, scrollHeight, clientHeight } = container;
+      const isAtTop = scrollTop === 0;
+      const isAtBottom = Math.abs(scrollHeight - clientHeight - scrollTop) < 1;
+
+      // Prevent scroll propagation when at boundaries
+      if ((isAtTop && e.deltaY < 0) || (isAtBottom && e.deltaY > 0)) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    };
+
+    const container = scrollContainerRef.current;
+    if (container) {
+      container.addEventListener('wheel', handleWheel, { passive: false });
+      
+      // Also prevent touch events from propagating
+      const handleTouchMove = (e) => {
+        e.stopPropagation();
+      };
+      
+      container.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+      return () => {
+        container.removeEventListener('wheel', handleWheel);
+        container.removeEventListener('touchmove', handleTouchMove);
+      };
+    }
+  }, []);
+
   const sportsCategories = [
     { name: 'Cricket', icon: '🏏', active: false, color: 'from-orange-400 to-red-500' },
     { name: 'Football', icon: '⚽', active: false, color: 'from-green-400 to-blue-500' },
@@ -83,8 +119,15 @@ const SidebarContent = () => {
 
   return (
     <>
-      {/* Scrollable Content */}
-      <div className="flex-1 overflow-y-auto px-4 py-4 custom-scrollbar">
+      {/* Scrollable Content with ref and proper containment */}
+      <div 
+        ref={scrollContainerRef}
+        className="flex-1 overflow-y-auto overflow-x-hidden px-4 py-4 custom-scrollbar"
+        style={{ 
+          overscrollBehavior: 'contain',
+          touchAction: 'pan-y'
+        }}
+      >
         {/* Sports Categories */}
         <div className="space-y-1">
           <h3 className="text-slate-400 text-xs font-semibold uppercase tracking-wider mb-4 px-3">
@@ -183,13 +226,12 @@ const SidebarContent = () => {
       </div>
 
       {/* Enhanced Bottom Section */}
-      <div className="p-4 border-t border-slate-700/50 bg-slate-800/50">
+      <div className="p-4 border-t border-slate-700/50 bg-slate-800/50 flex-shrink-0">
         <button className="w-full bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-600 hover:to-emerald-700 text-white py-3 px-4 rounded-xl flex items-center justify-center space-x-3 transition-all duration-200 transform hover:scale-[1.02] shadow-lg hover:shadow-xl font-medium">
           <MessageCircle size={20} />
           <span>Follow on WhatsApp</span>
         </button>
         
-        {/* Optional: Add a subtle stats or info section */}
         <div className="mt-4 text-center">
           <span className="text-xs text-slate-400">Online Players: </span>
           <span className="text-xs text-green-400 font-semibold">12,847</span>
