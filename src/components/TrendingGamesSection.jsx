@@ -68,7 +68,7 @@ const TrendingGamesSection = () => {
 
   return (
     <div className="bg-slate-900 py-8 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 lg:px-6 relative z-10">
+      <div className="max-w-7xl mx-auto px-4 lg:px-6 relative">
         <TrendingHeader />
         <TrendingGrid games={trendingGames} />
       </div>
@@ -240,7 +240,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         </div>
 
         {/* Category Badge */}
-        <div className="absolute top-4 left-4 z-20">
+        <div className="absolute top-4 left-4 ">
           <div className="px-3 py-1.5 bg-black/40 backdrop-blur-md rounded-full border border-white/20">
             <span className="text-white/90 text-xs font-medium uppercase tracking-wider">
               {game.category}
@@ -249,7 +249,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         </div>
 
         {/* Game Icon */}
-        <div className={`absolute ${isMobile ? 'top-4 right-4' : 'top-4 right-4'} z-20`}>
+        <div className={`absolute ${isMobile ? 'top-4 right-4' : 'top-4 right-4'} `}>
           <div className={`${isMobile ? 'w-10 h-10' : isSmall ? 'w-12 h-12' : 'w-14 h-14'} 
             bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center
             border border-white/20 transition-all duration-300 ${
@@ -263,7 +263,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
 
         {/* Special Live Indicator for Live Prediction */}
         {game.title === 'LIVE PREDICTION' && (
-          <div className="absolute top-4 right-20 z-20">
+          <div className="absolute top-4 right-20 ">
             <div className="flex items-center space-x-2 bg-red-500/90 px-3 py-1 rounded-full">
               <div className="w-2 h-2 bg-white rounded-full animate-pulse"></div>
               <span className="text-white text-xs font-bold">LIVE</span>
@@ -272,7 +272,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
         )}
 
         {/* Content Area */}
-        <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+        <div className="absolute bottom-0 left-0 right-0 p-6 ">
           <div className="space-y-3">
             
             {/* Title and Subtitle */}
@@ -318,7 +318,7 @@ const TrendingGameCard = ({ game, isSmall = false, isMobile = false, className =
 
         {/* Hover Play Overlay */}
         {!isMobile && isHovered && (
-          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center z-30 
+          <div className="absolute inset-0 bg-black/20 backdrop-blur-sm flex items-center justify-center 
             transition-all duration-300 rounded-3xl">
             <div className="bg-white/10 border border-white/30 rounded-2xl px-8 py-4 backdrop-blur-md
               shadow-2xl transform transition-all duration-200 hover:scale-105">

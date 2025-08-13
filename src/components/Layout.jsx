@@ -3,6 +3,7 @@ import { Menu, X, MessageCircle } from 'lucide-react';
 import Sidebar from './Sidebar';
 import Logo from '../assets/Logo/Logo.png'
 import Footer from './Footer';
+import BottomNavigation from './BottomNavigation';
 const Layout = ({ children }) => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
@@ -119,9 +120,10 @@ const Layout = ({ children }) => {
     </nav>
   </div>
 </header>
-          <div className="p-2 sm:p-6">
+          <div className="p-2 z-0 sm:p-6">
             {children}
           </div>
+          <BottomNavigation/>
           <Footer/>
         </div>
       </div>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
     import { TrendingUp } from 'lucide-react';
     import CasinoGamesSwiper from '../page/CasinoGamesSwiper';
     import { Swiper, SwiperSlide } from 'swiper/react';
@@ -38,13 +38,31 @@ import Cimg12 from '../assets/Lonch/img_12.webp'
     import './homePage.css';
     import img1 from '../assets/HeroSection/img1.png'
     import img2 from '../assets/HeroSection/img2.png'
+    import risimg1 from '../assets/HeroSection/resimg1.png'
+    import risimg2 from '../assets/HeroSection/resimg2.png'
+
+
 
     // import required modules
     import { Autoplay, FreeMode, Pagination } from 'swiper/modules';
 import Banner from './Banner';
 
     const HomePage = () => {
-    
+      const [isMobile, setIsMobile] = useState(false);
+  useEffect(() => {
+    // Check on initial load
+    const checkIsMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIsMobile();
+
+    // Listen for window resize
+    window.addEventListener("resize", checkIsMobile);
+    return () => {
+      window.removeEventListener("resize", checkIsMobile);
+    };
+  }, []);
 
       // Top Matches Data
 const topMatches = [
@@ -301,11 +319,11 @@ const topMatches = [
       return (
         <>
           {/* Hero Banners */}
- <div className="grid grid-cols-2 gap-2 sm:gap-4 lg:gap-6 mb-8">
+ <div className="grid grid-cols-2 sm:gap-4 lg:gap-6">
   {/* First Hero Banner */}
   <div className="relative rounded-lg sm:rounded-2xl overflow-hidden h-32 sm:h-48 md:h-56 lg:h-64 bg-[#111827]">
     <img 
-      src={img1} 
+      src={isMobile ? risimg1 : img1} 
       alt="Hero Banner 1" 
       className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
     />
@@ -314,14 +332,14 @@ const topMatches = [
   {/* Second Hero Banner */}
   <div className="relative rounded-lg sm:rounded-2xl overflow-hidden h-32 sm:h-48 md:h-56 lg:h-64 bg-[#111827]">
     <img 
-      src={img2} 
+      src={isMobile? risimg2 : img2} 
       alt="Hero Banner 2" 
       className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
     />
   </div>
 </div>
 
-<Banner/>
+{/* <Banner/> */}
 
 
           {/* Sports Section */}
@@ -444,7 +462,7 @@ const topMatches = [
             transition-colors duration-300"></div>
           
           {/* Content Container */}
-          <div className="absolute inset-0 flex  items-center justify-center p-3 text-center z-10">
+          <div className="absolute inset-0 flex  items-center justify-center p-3 text-center ">
             
             {/* Sport Icon */}
             <div className="text-3xl sm:text-4xl mb-2 transform transition-transform duration-300 
@@ -468,7 +486,7 @@ const topMatches = [
           {/* Active Indicator for Popular Sports */}
           {['CRICKET', 'FOOTBALL', 'TENNIS'].includes(sport.name) && (
             <div className="absolute -top-1 -right-1 w-3 h-3 bg-yellow-400 rounded-full 
-              border-2 border-white shadow-lg z-20 animate-pulse"></div>
+              border-2 border-white shadow-lg  animate-pulse"></div>
           )}
           
           {/* Bottom Shine Effect */}
@@ -504,6 +522,7 @@ const topMatches = [
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
     </div>            <div className='grid'>
     <Swiper
+    
   slidesPerView={1.1}
   spaceBetween={15}
   autoplay={{
@@ -572,7 +591,7 @@ const topMatches = [
             transition-all duration-300"></div>
           
           {/* Content Container */}
-          <div className="relative z-10 h-full p-4 sm:p-6 flex flex-col">
+          <div className="relative  h-full p-4 sm:p-6 flex flex-col">
             
             {/* Top Section - Teams and Live Badge */}
             <div className="flex items-center justify-between mb-4">
@@ -673,7 +692,7 @@ const topMatches = [
           </div>
 
           {/* New Launch Games */}
-          <div className="mb-8">
+          <div className="mb-4">
             <div className="flex items-center justify-between mb-6">
    <div className="flex items-center mb-6 sm:mb-8">
       <div className="relative">
