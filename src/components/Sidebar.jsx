@@ -5,7 +5,7 @@ const Sidebar = ({ isOpen, onClose }) => {
   return (
     <>
       {/* Mobile Sidebar */}
-      <div className={`fixed lg:hidden inset-y-0 left-0 z-50 w-72 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-slate-700/50 transform transition-all duration-300 ease-in-out shadow-2xl ${
+      <div className={`fixed lg:hidden  inset-y-0 left-0 z-[1000] w-72 bg-gradient-to-b from-slate-900 via-slate-800 to-slate-900 border-r border-slate-700/50 transform transition-all duration-300 ease-in-out shadow-2xl ${
         isOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full backdrop-blur-sm">
