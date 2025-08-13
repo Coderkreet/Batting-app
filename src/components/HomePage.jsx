@@ -325,7 +325,7 @@ const topMatches = [
     <img 
       src={isMobile ? risimg1 : img1} 
       alt="Hero Banner 1" 
-      className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+      className="w-full h-full object-contain transition-transform duration-300" 
     />
   </div>
 
@@ -334,7 +334,7 @@ const topMatches = [
     <img 
       src={isMobile? risimg2 : img2} 
       alt="Hero Banner 2" 
-      className="w-full h-full object-contain transition-transform duration-300 hover:scale-105" 
+      className="w-full h-full object-contain transition-transform duration-300 " 
     />
   </div>
 </div>
@@ -451,7 +451,7 @@ const topMatches = [
         {/* Card Container */}
         <div className="w-full min-w-[6rem] max-w-[8rem] aspect-[4/2] rounded-2xl overflow-hidden 
           cursor-pointer transform transition-all duration-300 ease-out
-          hover:scale-105 hover:shadow-2xl hover:-translate-y-1
+        
           shadow-lg border border-white/20 relative">
           
           {/* Gradient Background */}
