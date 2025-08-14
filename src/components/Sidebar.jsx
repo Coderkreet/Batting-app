@@ -136,21 +136,21 @@ const SidebarContent = () => {
           {sportsCategories.map((sport, index) => (
             <div 
               key={index} 
-              className={`group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-200 transform hover:scale-[1.02] ${
+              className={`group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer transition-all duration-150 ease-out ${
                 sport.active 
                   ? `bg-gradient-to-r ${sport.color} shadow-lg shadow-orange-500/25` 
-                  : 'hover:bg-orange-500/10 hover:shadow-md hover:border hover:border-orange-500/30'
+                  : 'hover:bg-orange-500/10 hover:shadow-md border border-transparent hover:border-orange-500/30'
               }`}
             >
               <div className="flex items-center space-x-3">
-                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-200 ${
+                <div className={`w-8 h-8 rounded-lg flex items-center justify-center transition-all duration-150 ease-out ${
                   sport.active 
                     ? 'bg-white/20 backdrop-blur-sm' 
                     : 'bg-gray-700/50 group-hover:bg-orange-500/20'
                 }`}>
                   <span className="text-sm">{sport.icon}</span>
                 </div>
-                <span className={`text-sm font-medium transition-colors ${
+                <span className={`text-sm font-medium transition-colors duration-150 ease-out ${
                   sport.active ? 'text-white' : 'text-gray-300 group-hover:text-orange-200'
                 }`}>
                   {sport.name}
@@ -158,7 +158,7 @@ const SidebarContent = () => {
               </div>
               <ChevronRight 
                 size={16} 
-                className={`transition-all duration-200 ${
+                className={`transition-all duration-150 ease-out ${
                   sport.active 
                     ? 'text-white opacity-100' 
                     : 'text-orange-400 opacity-0 group-hover:opacity-100'
@@ -179,17 +179,17 @@ const SidebarContent = () => {
               return (
                 <div 
                   key={index} 
-                  className="group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer hover:bg-orange-500/10 hover:border hover:border-orange-500/30 transition-all duration-200 transform hover:scale-[1.02] hover:shadow-md"
+                  className="group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer hover:bg-orange-500/10 border border-transparent hover:border-orange-500/30 transition-all duration-150 ease-out hover:shadow-md"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
+                    <div className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-orange-500/20 transition-colors duration-150 ease-out">
                       <IconComponent size={16} className={item.color} />
                     </div>
-                    <span className="text-sm font-medium text-gray-300 group-hover:text-orange-200 transition-colors">
+                    <span className="text-sm font-medium text-gray-300 group-hover:text-orange-200 transition-colors duration-150 ease-out">
                       {item.name}
                     </span>
                   </div>
-                  <ChevronRight size={16} className="text-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                  <ChevronRight size={16} className="text-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-150 ease-out" />
                 </div>
               );
             })}
@@ -207,17 +207,17 @@ const SidebarContent = () => {
               return (
                 <div 
                   key={index} 
-                  className="group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer hover:bg-orange-500/10 hover:border hover:border-orange-500/30 transition-all duration-200 transform hover:scale-[1.02] hover:shadow-md"
+                  className="group flex items-center justify-between px-4 py-3 rounded-xl cursor-pointer hover:bg-orange-500/10 border border-transparent hover:border-orange-500/30 transition-all duration-150 ease-out hover:shadow-md"
                 >
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-orange-500/20 transition-colors">
+                    <div className="w-8 h-8 bg-gray-700/50 rounded-lg flex items-center justify-center group-hover:bg-orange-500/20 transition-colors duration-150 ease-out">
                       <IconComponent size={16} className={item.color} />
                     </div>
-                    <span className="text-sm font-medium text-gray-300 group-hover:text-orange-200 transition-colors">
+                    <span className="text-sm font-medium text-gray-300 group-hover:text-orange-200 transition-colors duration-150 ease-out">
                       {item.name}
                     </span>
                   </div>
-                  <ChevronRight size={16} className="text-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-200" />
+                  <ChevronRight size={16} className="text-orange-400 opacity-0 group-hover:opacity-100 transition-all duration-150 ease-out" />
                 </div>
               );
             })}
