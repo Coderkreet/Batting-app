@@ -426,40 +426,38 @@ const CasinoGamesSwiper = () => {
       </div>
       <div className="ml-4 sm:ml-6 h-px bg-gradient-to-r from-cyan-400 via-purple-400 to-transparent flex-1 max-w-60"></div>
     </div>        <div className="grid">
-       <Swiper
-                   slidesPerView={2.5}
-                   spaceBetween={15}
-                   autoplay={{
-                     delay: 4000,
-                     disableOnInteraction: false,
-                   }}
-                     dir="rtl"
+     <Swiper
+            slidesPerView={2.5}
+            spaceBetween={15}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            simulateTouch={true}
+            grabCursor={true}
+            touchRatio={1}
+            touchAngle={45}
+            allowTouchMove={true}
+            loop={true}
+            freeMode={true}
+            // Mouse wheel and trackpad support
+            mousewheel={{
+              enabled: true,
+              forceToAxis: true, // Forces scroll to swiper axis (horizontal)
+              sensitivity: 1, // Adjust sensitivity (0.1 - 2)
+              thresholdDelta: 50, // Minimum delta to trigger slide change
+            }}
+            breakpoints={{
+              480: { slidesPerView: 3, spaceBetween: 12 },
+              640: { slidesPerView: 4, spaceBetween: 15 },
+              768: { slidesPerView: 5, spaceBetween: 16 },
+              1024: { slidesPerView: 6, spaceBetween: 18 },
+              1280: { slidesPerView: 8, spaceBetween: 20 },
+            }}
+            modules={[FreeMode, Autoplay, Mousewheel]}
+            className="sportsSwiper"
+          >
 
-                    //  speed={800}  
-                   simulateTouch={true}
-                   grabCursor={true}
-                   touchRatio={1}
-                   touchAngle={45}
-                   allowTouchMove={true}
-                   loop={true}
-                   freeMode={true}
-                   // Mouse wheel and trackpad support
-                   mousewheel={{
-                     enabled: true,
-                     forceToAxis: true, // Forces scroll to swiper axis (horizontal)
-                     sensitivity: 1, // Adjust sensitivity (0.1 - 2)
-                     thresholdDelta: 50, // Minimum delta to trigger slide change
-                   }}
-                   breakpoints={{
-                     480: { slidesPerView: 3, spaceBetween: 12 },
-                     640: { slidesPerView: 4, spaceBetween: 15 },
-                     768: { slidesPerView: 5, spaceBetween: 16 },
-                     1024: { slidesPerView: 6, spaceBetween: 18 },
-                     1280: { slidesPerView: 8, spaceBetween: 20 },
-                   }}
-                   modules={[FreeMode, Autoplay, Mousewheel]}
-                   className="sportsSwiper"
-                 >
 
             {liveCasinoGames.map((game, index) => (
               <SwiperSlide key={index} className='mySwiper2'>
@@ -633,13 +631,11 @@ const CasinoGamesSwiper = () => {
           </Swiper>
         </div>
          <div className="grid mt-4">
-    <Swiper
+   <Swiper
             slidesPerView={2.5}
             spaceBetween={15}
-              dir="rtl"
-
             autoplay={{
-              delay: 2500,
+              delay: 3000,
               disableOnInteraction: false,
             }}
             simulateTouch={true}
