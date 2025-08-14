@@ -35,7 +35,7 @@ const Header = ({ setSidebarOpen }) => {
             <div className="flex md:hidden items-center">
               <img 
                 src={Logo} 
-                width={80} 
+                width={70} 
                 height={40} 
                 alt="Logo" 
                 className="sm:w-24 sm:h-12"

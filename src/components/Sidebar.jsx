@@ -11,9 +11,9 @@ const Sidebar = ({ isOpen, onClose }) => {
       }`}>
         <div className="flex flex-col h-full backdrop-blur-sm">
           <div className="flex items-center justify-between p-6 border-b border-orange-500/30">
-            <div className="flex items-center space-x-3">
+            <div className="flex items-center justify-center space-x-3">
               <span className="text-xl font-bold bg-gradient-to-r from-orange-400 to-yellow-500 bg-clip-text text-transparent">
-                <img src={Logo} alt="" />
+                <img src={Logo} width={100} alt="" />
               </span>
             </div>
             <button 
